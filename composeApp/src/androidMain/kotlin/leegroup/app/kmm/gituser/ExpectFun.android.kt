@@ -19,3 +19,8 @@ actual fun UserAvatar(modifier: Modifier, avatarUrl: String?) {
 actual fun stringRetry(): String {
     return stringResource(R.string.common_retry)
 }
+
+@Composable
+actual fun stringLoading(): String {
+    return stringResource(R.string.loading)
+}

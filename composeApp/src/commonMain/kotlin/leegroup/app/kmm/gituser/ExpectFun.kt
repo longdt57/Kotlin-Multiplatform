@@ -7,4 +7,7 @@ import androidx.compose.ui.Modifier
 expect fun stringRetry(): String
 
 @Composable
+expect fun stringLoading(): String
+
+@Composable
 expect fun UserAvatar(modifier: Modifier, avatarUrl: String?)

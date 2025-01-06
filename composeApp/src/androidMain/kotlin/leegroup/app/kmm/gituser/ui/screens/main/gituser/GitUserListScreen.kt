@@ -1,46 +1,33 @@
 package leegroup.app.kmm.gituser.ui.screens.main.gituser
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
-import leegroup.app.kmm.gituser.R
 import leegroup.app.kmm.gituser.domain.models.GitUserModel
 import leegroup.app.kmm.gituser.support.extensions.collectAsEffect
+import leegroup.app.kmm.gituser.support.extensions.formatAndOpenUrl
 import leegroup.app.kmm.gituser.ui.base.BaseScreen
 import leegroup.app.kmm.gituser.ui.base.LoadingState
-import leegroup.app.kmm.gituser.ui.components.LoadMore
-import leegroup.app.kmm.gituser.ui.components.UserCard
-import leegroup.app.kmm.gituser.ui.screens.main.MainDestination
+import leegroup.app.kmm.gituser.ui.screens.main.gituser.components.GitUserList
+import leegroup.app.kmm.gituser.ui.screens.main.gituser.components.GitUserListAppBar
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.components.GitUserListEmpty
-import leegroup.app.kmm.gituser.ui.screens.main.gituser.components.GitUserListItem
 import leegroup.app.kmm.gituser.ui.theme.ComposeTheme
 import org.koin.androidx.compose.koinViewModel
 
@@ -91,6 +78,7 @@ private fun GitUserListScreenContent(
     onLoadMore: () -> Unit,
     onRefresh: () -> Unit,
 ) {
+    val context = LocalContext.current
     Column(modifier = modifier) {
         GitUserListAppBar()
         if (users.isNotEmpty()) {
@@ -101,6 +89,9 @@ private fun GitUserListScreenContent(
                     .padding(horizontal = 20.dp),
                 users = users,
                 onClick = onClick,
+                onLinkClick = {
+                    context.formatAndOpenUrl(it)
+                },
                 onLoadMore = onLoadMore
             )
         } else if (showRefresh) {
@@ -109,58 +100,6 @@ private fun GitUserListScreenContent(
                 onRefresh = onRefresh
             )
         }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun GitUserListAppBar(modifier: Modifier = Modifier) {
-    CenterAlignedTopAppBar(
-        modifier = modifier,
-        title = {
-            Text(
-                text = stringResource(id = R.string.git_user_list_screen_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.SemiBold
-            )
-        })
-}
-
-@Composable
-private fun GitUserList(
-    modifier: Modifier = Modifier,
-    users: ImmutableList<GitUserModel>,
-    onClick: (GitUserModel) -> Unit,
-    onLoadMore: () -> Unit
-) {
-    val listState = rememberLazyListState()
-    LoadMore(listState = listState, onLoadMore = onLoadMore)
-    LazyColumn(
-        modifier = modifier,
-        state = listState,
-        verticalArrangement = Arrangement.spacedBy(10.dp),
-    ) {
-        item {
-            Spacer(modifier = Modifier.height(8.dp))
-        }
-        items(users) { user ->
-            GitUserListCard(user, onClick)
-        }
-        item {
-            Spacer(modifier = Modifier.height(16.dp))
-        }
-    }
-}
-
-@Composable
-private fun GitUserListCard(user: GitUserModel, onClick: (GitUserModel) -> Unit) {
-    UserCard(modifier = Modifier.clickable { onClick(user) }) {
-        GitUserListItem(
-            modifier = Modifier.padding(12.dp),
-            title = user.login,
-            avatarUrl = user.avatarUrl,
-            htmlUrl = user.htmlUrl
-        )
     }
 }
 

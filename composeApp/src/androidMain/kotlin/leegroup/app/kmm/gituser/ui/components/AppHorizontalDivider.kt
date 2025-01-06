@@ -1,0 +1,17 @@
+package leegroup.app.kmm.gituser.ui.components
+
+import androidx.compose.material3.DividerDefaults
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
+
+@Composable
+fun AppHorizontalDivider(
+    modifier: Modifier = Modifier,
+    thickness: Dp = DividerDefaults.Thickness,
+    color: Color = Color.LightGray.copy(alpha = 0.5f),
+) {
+    HorizontalDivider(modifier, thickness, color)
+}

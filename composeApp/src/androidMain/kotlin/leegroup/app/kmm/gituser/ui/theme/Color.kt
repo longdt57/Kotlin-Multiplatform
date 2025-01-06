@@ -1,0 +1,201 @@
+package leegroup.app.kmm.gituser.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+// Blue - Bold
+val BlueBold100 = Color(0xFF002970)
+val BlueBold200 = Color(0xFF003484)
+val BlueBold300 = Color(0xFF004099)
+val BlueBold400 = Color(0xFF004cad)
+val BlueBold500 = Color(0xFF0058c2)
+val BlueBold600 = Color(0xFF0064d6)
+val BlueBold700 = Color(0xFF0271e8)
+val BlueBold800 = Color(0xFF067ef9)
+val BlueBold900 = Color(0xFF178bfd)
+val BlueBold950 = Color(0xFF2b97fd)
+
+// Blue - Soft
+val BlueSoft100 = Color(0xFF43a7fe)
+val BlueSoft200 = Color(0xFF56b0fd)
+val BlueSoft300 = Color(0xFF68b8fd)
+val BlueSoft400 = Color(0xFF7ac1fe)
+val BlueSoft500 = Color(0xFF8cc9fe)
+val BlueSoft600 = Color(0xFF9dd2fe)
+val BlueSoft700 = Color(0xFFafdafe)
+val BlueSoft800 = Color(0xFFc1e3ff)
+val BlueSoft900 = Color(0xFFd3ebff)
+val BlueSoft950 = Color(0xFFe5f4ff)
+
+// Pink - Bold
+val PinkBold100 = Color(0xFF510135)
+val PinkBold200 = Color(0xFF680445)
+val PinkBold300 = Color(0xFF7e0955)
+val PinkBold400 = Color(0xFF911064)
+val PinkBold500 = Color(0xFFa61774)
+val PinkBold600 = Color(0xFFbd1a84)
+val PinkBold700 = Color(0xFFcd2492)
+val PinkBold800 = Color(0xFFdd2fa0)
+val PinkBold900 = Color(0xFFe93dad)
+val PinkBold950 = Color(0xFFee53b8)
+
+// Pink - Soft
+val PinkSoft100 = Color(0xFFf362c1)
+val PinkSoft200 = Color(0xFFf472c7)
+val PinkSoft300 = Color(0xFFf682cd)
+val PinkSoft400 = Color(0xFFf791d3)
+val PinkSoft500 = Color(0xFFf8a1da)
+val PinkSoft600 = Color(0xFFfab1e0)
+val PinkSoft700 = Color(0xFFfbc1e7)
+val PinkSoft800 = Color(0xFFfcd0ed)
+val PinkSoft900 = Color(0xFFfee0f3)
+val PinkSoft950 = Color(0xFFfef1f9)
+
+// Orange - Bold
+val OrangeBold100 = Color(0xFF572800)
+val OrangeBold200 = Color(0xFF6c3301)
+val OrangeBold300 = Color(0xFF803e04)
+val OrangeBold400 = Color(0xFF934908)
+val OrangeBold500 = Color(0xFFa7560b)
+val OrangeBold600 = Color(0xFFba610e)
+val OrangeBold700 = Color(0xFFca6c14)
+val OrangeBold800 = Color(0xFFdc7718)
+val OrangeBold900 = Color(0xFFec8620)
+val OrangeBold950 = Color(0xFFf6912c)
+
+// Orange - Soft
+val OrangeSoft100 = Color(0xFFfb9f3c)
+val OrangeSoft200 = Color(0xFFfca74c)
+val OrangeSoft300 = Color(0xFFfab060)
+val OrangeSoft400 = Color(0xFFfdbb6f)
+val OrangeSoft500 = Color(0xFFfcc381)
+val OrangeSoft600 = Color(0xFFfdcd92)
+val OrangeSoft700 = Color(0xFFfdd5a3)
+val OrangeSoft800 = Color(0xFFfddfb4)
+val OrangeSoft900 = Color(0xFFfde8c6)
+val OrangeSoft950 = Color(0xFFfef0d8)
+
+// Red - Bold
+val RedBold100 = Color(0xFF520003)
+val RedBold200 = Color(0xFF670307)
+val RedBold300 = Color(0xFF790a0e)
+val RedBold400 = Color(0xFF8b1014)
+val RedBold500 = Color(0xFF9e161a)
+val RedBold600 = Color(0xFFaf1d21)
+val RedBold700 = Color(0xFFc02429)
+val RedBold800 = Color(0xFFd12b30)
+val RedBold900 = Color(0xFFe13439)
+val RedBold950 = Color(0xFFee3f44)
+
+// Red - Soft
+val RedSoft100 = Color(0xFFfa4c52)
+val RedSoft200 = Color(0xFFfb5d62)
+val RedSoft300 = Color(0xFFfb6e73)
+val RedSoft400 = Color(0xFFfc7f83)
+val RedSoft500 = Color(0xFFfc9093)
+val RedSoft600 = Color(0xFFfda1a4)
+val RedSoft700 = Color(0xFFfdb2b4)
+val RedSoft800 = Color(0xFFfec3c4)
+val RedSoft900 = Color(0xFFffd4d5)
+val RedSoft950 = Color(0xFFfee6e6)
+
+// Violet - Bold
+val VioletBold100 = Color(0xFF2d1467)
+val VioletBold200 = Color(0xFF381d76)
+val VioletBold300 = Color(0xFF442884)
+val VioletBold400 = Color(0xFF4f3194)
+val VioletBold500 = Color(0xFF5b3ca2)
+val VioletBold600 = Color(0xFF6646b1)
+val VioletBold700 = Color(0xFF7251bf)
+val VioletBold800 = Color(0xFF7f5ecb)
+val VioletBold900 = Color(0xFF8b6ad8)
+val VioletBold950 = Color(0xFF9878e3)
+
+// Violet - Soft
+val VioletSoft100 = Color(0xFFa588e7)
+val VioletSoft200 = Color(0xFFae93e9)
+val VioletSoft300 = Color(0xFFb69eec)
+val VioletSoft400 = Color(0xFFbfaaee)
+val VioletSoft500 = Color(0xFFc7b5f1)
+val VioletSoft600 = Color(0xFFd0c0f3)
+val VioletSoft700 = Color(0xFFd8cbf6)
+val VioletSoft800 = Color(0xFFe1d7f8)
+val VioletSoft900 = Color(0xFFe9e2fb)
+val VioletSoft950 = Color(0xFFf2edfd)
+
+// Yellow - Bold
+val YellowBold100 = Color(0xFF574500)
+val YellowBold200 = Color(0xFF675300)
+val YellowBold300 = Color(0xFF766100)
+val YellowBold400 = Color(0xFF867000)
+val YellowBold500 = Color(0xFF957e00)
+val YellowBold600 = Color(0xFFa58d00)
+val YellowBold700 = Color(0xFFb49b00)
+val YellowBold800 = Color(0xFFc4aa00)
+val YellowBold900 = Color(0xFFd2b701)
+val YellowBold950 = Color(0xFFdec302)
+
+// Yellow - Soft
+val YellowSoft100 = Color(0xFFe4ca0c)
+val YellowSoft200 = Color(0xFFebd20f)
+val YellowSoft300 = Color(0xFFf0da28)
+val YellowSoft400 = Color(0xFFf1e04b)
+val YellowSoft500 = Color(0xFFf2e567)
+val YellowSoft600 = Color(0xFFf4e97d)
+val YellowSoft700 = Color(0xFFf5ee94)
+val YellowSoft800 = Color(0xFFf7f3ab)
+val YellowSoft900 = Color(0xFFf8f7c2)
+val YellowSoft950 = Color(0xFFfafcd9)
+
+// Green - Bold
+val GreenBold100 = Color(0xFF005204)
+val GreenBold200 = Color(0xFF095f19)
+val GreenBold300 = Color(0xFF116d1f)
+val GreenBold400 = Color(0xFF1a7a25)
+val GreenBold500 = Color(0xFF23872b)
+val GreenBold600 = Color(0xFF2b9531)
+val GreenBold700 = Color(0xFF34a238)
+val GreenBold800 = Color(0xFF3daf3d)
+val GreenBold900 = Color(0xFF49bb47)
+val GreenBold950 = Color(0xFF57c653)
+
+// Green - Soft
+val GreenSoft100 = Color(0xFF67ce64)
+val GreenSoft200 = Color(0xFF77d374)
+val GreenSoft300 = Color(0xFF83d77f)
+val GreenSoft400 = Color(0xFF96dd92)
+val GreenSoft500 = Color(0xFFa5e2a1)
+val GreenSoft600 = Color(0xFFb7e8b4)
+val GreenSoft700 = Color(0xFFc5edc2)
+val GreenSoft800 = Color(0xFFd4f2d1)
+val GreenSoft900 = Color(0xFFe2f7df)
+val GreenSoft950 = Color(0xFFf1faef)
+
+// Black
+val Black100 = Color(0xFF000000)
+
+// White
+val White100 = Color(0xFFFFFFFF)
+
+// Grey - Bold
+val GreyBold100 = Color(0xFF141415)
+val GreyBold200 = Color(0xFF1e1e1f)
+val GreyBold300 = Color(0xFF282929)
+val GreyBold400 = Color(0xFF323334)
+val GreyBold500 = Color(0xFF3d3d3e)
+val GreyBold600 = Color(0xFF474748)
+val GreyBold700 = Color(0xFF535455)
+val GreyBold800 = Color(0xFF5d5e5f)
+val GreyBold900 = Color(0xFF6a6b6c)
+val GreyBold950 = Color(0xFF797a7c)
+
+// Grey - Soft
+val GreySoft100 = Color(0xFF8b8c8d)
+val GreySoft200 = Color(0xFF9b9b9d)
+val GreySoft300 = Color(0xFFaaabac)
+val GreySoft400 = Color(0xFFb7b7b8)
+val GreySoft500 = Color(0xFFc1c2c2)
+val GreySoft600 = Color(0xFFcbcccd)
+val GreySoft700 = Color(0xFFd6d6d7)
+val GreySoft800 = Color(0xFFe0e0e1)
+val GreySoft900 = Color(0xFFeaebeb)
+val GreySoft950 = Color(0xFFf5f5f5)

@@ -1,10 +1,6 @@
 package leegroup.app.kmm.gituser.ui.base
 
-import androidx.navigation.NamedNavArgument
-
 abstract class BaseDestination(val route: String = "") {
-
-    open val arguments: List<NamedNavArgument> = emptyList()
 
     open val deepLinks: List<String> = emptyList()
 

@@ -45,7 +45,7 @@ abstract class BaseViewModel : ViewModel() {
             is NoConnectivityException -> ErrorState.Network()
             is ServerException -> ErrorState.Server()
             is ApiException -> ErrorState.Api(
-                message = e.error?.message
+                customMessage = e.error?.message
             )
 
             else -> ErrorState.Common

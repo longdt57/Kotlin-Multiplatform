@@ -15,37 +15,37 @@ sealed interface ErrorState {
 
     interface MessageError : ErrorState {
         val errorCode: Int? get() = null
-        val iconRes: (@Composable () -> Unit)? get() = null
-        val titleRes: @Composable () -> String get() = { stringPopupErrorUnknownTitle() }
-        val messageRes: @Composable () -> String get() = { stringPopupErrorUnknownBody() }
-        val primaryRes: (@Composable () -> String)? get() = { stringClose() }
-        val secondaryRes: (@Composable () -> String)? get() = null
+        val icon: (@Composable () -> Unit)? get() = null
+        val title: @Composable () -> String get() = { stringPopupErrorUnknownTitle() }
+        val message: @Composable () -> String get() = { stringPopupErrorUnknownBody() }
+        val confirmText: (@Composable () -> String)? get() = { stringClose() }
+        val dismissText: (@Composable () -> String)? get() = null
     }
 
     data object Common : MessageError
 
     data class Network(
         override val errorCode: Int? = null,
-        override val titleRes: @Composable () -> String = { stringPopupErrorNoConnectionTitle() },
-        override val messageRes: @Composable () -> String = { stringPopupErrorNoConnectionBody() },
-        override val primaryRes: @Composable () -> String = { stringRetry() },
-        override val secondaryRes: @Composable () -> String = { stringClose() }
+        override val title: @Composable () -> String = { stringPopupErrorNoConnectionTitle() },
+        override val message: @Composable () -> String = { stringPopupErrorNoConnectionBody() },
+        override val confirmText: @Composable () -> String = { stringRetry() },
+        override val dismissText: @Composable () -> String = { stringClose() }
     ) : MessageError
 
     data class Api(
         override val errorCode: Int? = null,
-        override val titleRes: @Composable () -> String = { stringPopupErrorUnknownTitle() },
-        override val messageRes: @Composable () -> String = { stringPopupErrorUnknownBody() },
-        override val primaryRes: @Composable () -> String = { stringRetry() },
-        override val secondaryRes: @Composable () -> String = { stringClose() },
-        val message: String?,
+        override val title: @Composable () -> String = { stringPopupErrorUnknownTitle() },
+        override val message: @Composable () -> String = { stringPopupErrorUnknownBody() },
+        override val confirmText: @Composable () -> String = { stringRetry() },
+        override val dismissText: @Composable () -> String = { stringClose() },
+        val customMessage: String?,
     ) : MessageError
 
     data class Server(
         override val errorCode: Int? = null,
-        override val titleRes: @Composable () -> String = { stringPopupErrorTimeOutTitle() },
-        override val messageRes: @Composable () -> String = { stringPopupErrorTimeOutBody() },
-        override val primaryRes: (@Composable () -> String)? = null,
-        override val secondaryRes: @Composable () -> String = { stringClose() },
+        override val title: @Composable () -> String = { stringPopupErrorTimeOutTitle() },
+        override val message: @Composable () -> String = { stringPopupErrorTimeOutBody() },
+        override val confirmText: (@Composable () -> String)? = null,
+        override val dismissText: @Composable () -> String = { stringClose() },
     ) : MessageError
 }

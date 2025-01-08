@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import leegroup.app.kmm.gituser.support.extensions.collectAsEffect
 import leegroup.app.kmm.gituser.support.extensions.formatAndOpenUrl
-import leegroup.app.kmm.gituser.ui.base.BaseScreen
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.components.GitUserListScreenContent
 import org.koin.androidx.compose.koinViewModel
 

@@ -1,19 +1,6 @@
 package leegroup.app.kmm.gituser.ui.base
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-
-@Composable
-fun ErrorView(viewModel: BaseViewModel) {
-    val error by viewModel.error.collectAsStateWithLifecycle()
-    ErrorView(
-        error = error,
-        onErrorConfirmation = { viewModel.onErrorConfirmation(it) },
-        onErrorDismissRequest = { viewModel.onErrorDismissClick(it) }
-    )
-}
-
 
 @Composable
 fun ErrorView(
@@ -24,14 +11,14 @@ fun ErrorView(
     when (error) {
         is ErrorState.MessageError -> {
             val message = when (error) {
-                is ErrorState.Api -> error.message ?: error.messageRes()
-                else -> error.messageRes()
+                is ErrorState.Api -> error.customMessage ?: error.message()
+                else -> error.message()
             }
             AlertDialogView(
-                dialogTitle = error.titleRes(),
+                dialogTitle = error.title(),
                 dialogText = message,
-                confirmText = error.primaryRes?.let { it() },
-                dismissText = error.secondaryRes?.let { it() },
+                confirmText = error.confirmText?.let { it() },
+                dismissText = error.dismissText?.let { it() },
                 onConfirmation = { onErrorConfirmation(error) },
                 onDismissRequest = { onErrorDismissRequest(error) })
         }

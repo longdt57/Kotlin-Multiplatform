@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import leegroup.app.kmm.gituser.R
 import leegroup.app.kmm.gituser.ui.theme.ComposeTheme
 
@@ -26,7 +26,7 @@ fun GitUserListAppBar(modifier: Modifier = Modifier) {
         })
 }
 
-@Preview(showSystemUi = true)
+@Preview
 @Composable
 private fun ScreenPreview() {
     ComposeTheme {

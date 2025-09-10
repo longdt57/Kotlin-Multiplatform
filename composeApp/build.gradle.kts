@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -7,7 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    kotlin("plugin.serialization") version "2.0.0"
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -54,6 +53,7 @@ kotlin {
         }
 
         commonMain.dependencies {
+            implementation(projects.core.designsystem)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)

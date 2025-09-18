@@ -119,3 +119,11 @@ kotlin {
     }
 
 }
+
+compose.resources {
+    // Can public resources to use in parent module but is not available in preview UI so far.
+    // Currently apply actual/expect data type to get the resource.
+    publicResClass = true
+    // optional custom package res class:
+    // packageOfResClass = "kmpbase.core.resources.generated.resources"
+}

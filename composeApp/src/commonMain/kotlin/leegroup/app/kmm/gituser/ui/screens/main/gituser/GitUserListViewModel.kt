@@ -11,9 +11,9 @@ import kotlinx.coroutines.flow.update
 import leegroup.app.kmm.gituser.domain.models.GitUserModel
 import leegroup.app.kmm.gituser.domain.usecases.gituser.GetGitUserUseCase
 import leegroup.app.kmm.gituser.support.util.DispatchersProvider
-import leegroup.app.kmm.gituser.ui.base.BaseViewModel
-import leegroup.app.kmm.gituser.ui.base.ErrorState
 import leegroup.app.kmm.gituser.ui.models.GitUserListUiModel
+import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.viewmodel.BaseViewModel
 
 open class GitUserListViewModel(
     private val dispatchersProvider: DispatchersProvider,

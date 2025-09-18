@@ -24,9 +24,10 @@ fun LoadingProgress(loading: LoadingState.Loading) {
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             CircularProgressIndicator()
-            stringResourceOrNull(loading.messageRes)?.let { text ->
-                Text(modifier = Modifier.padding(8.dp), text = text)
-            }
+            // TODO fix crash
+//            stringResourceOrNull(loading.messageRes)?.let { text ->
+//                Text(modifier = Modifier.padding(8.dp), text = text)
+//            }
         }
     }
 }

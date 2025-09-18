@@ -60,4 +60,17 @@ abstract class BaseViewModel : ViewModel() {
     protected fun <T> Flow<T>.injectLoading(): Flow<T> = this
         .onStart { showLoading() }
         .onCompletion { hideLoading() }
+
+    protected open fun handleError(e: Throwable) {
+//        val error = when (e) {
+//            is NoConnectivityException -> ErrorState.Network
+//            is ServerException -> ErrorState.Server
+//            is ApiException -> ErrorState.Api(
+//                customMessage = e.error?.message
+//            )
+//
+//            else -> ErrorState.Common
+//        }
+//        _error.tryEmit(error)
+    }
 }

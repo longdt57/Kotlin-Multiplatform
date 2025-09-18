@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">GitUser KMM</string>
+
+    <string name="git_user_list_screen_title">Github Users</string>
+    <string name="git_user_detail_screen_title">User Details</string>
+
+    <string name="common_close">"Close"</string>
+    <string name="common_ok">"OK"</string>
+    <string name="common_retry">"Retry"</string>
+
+    <string name="popup_error_unknown_title">"Sorry, something went wrong!"</string>
+    <string name="popup_error_unknown_body">"There was a problem processing your request. Please try again."</string>
+    <string name="popup_error_timeout_title">"Oops…Our server overloaded!"</string>
+    <string name="popup_error_timeout_body">"Apologies for the inconvenience! We’ll be back soon. Please try again later."</string>
+    <string name="popup_error_no_connection_title">"You are currently offline!"</string>
+    <string name="popup_error_no_connection_body">"Looks like your connection is interrupted. Check network connection and try again."</string>
+
+    <string name="back">Back</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="blog">Blog</string>
+    <string name="not_set">Not set</string>
+    <string name="loading">Loading…</string>
+    <string name="user_avatar">User Avatar</string>
+</resources>

@@ -13,11 +13,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import leegroup.app.kmm.gituser.GitUserListAppBar
 import leegroup.app.kmm.gituser.domain.models.GitUserModel
-import leegroup.app.kmm.gituser.ui.base.ErrorView
-import leegroup.app.kmm.gituser.ui.base.LoadingState
-import leegroup.app.kmm.gituser.ui.base.LoadingView
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.GitUserListAction
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.GitUserListViewModel
+import leegroup.module.designsystem.ui.models.LoadingState
 
 @Composable
 fun GitUserListScreenContent(
@@ -56,6 +54,4 @@ fun GitUserListScreenContent(
             )
         }
     }
-    LoadingView(viewModel)
-    ErrorView(viewModel)
 }

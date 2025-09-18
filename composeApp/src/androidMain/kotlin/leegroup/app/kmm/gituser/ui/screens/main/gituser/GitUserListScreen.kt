@@ -12,13 +12,14 @@ import androidx.compose.ui.platform.LocalContext
 import leegroup.app.kmm.gituser.support.extensions.collectAsEffect
 import leegroup.app.kmm.gituser.support.extensions.formatAndOpenUrl
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.components.GitUserListScreenContent
+import leegroup.module.designsystem.components.BaseScreen
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun GitUserListScreen(
     viewModel: GitUserListViewModel = koinViewModel(),
     navigator: (destination: Any) -> Unit,
-) {
+) = BaseScreen(viewModel) {
 
     viewModel.navigator.collectAsEffect { destination -> navigator(destination) }
 

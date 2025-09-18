@@ -8,7 +8,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import leegroup.app.kmm.gituser.stringRetry
+import gituserkmm.composeapp.generated.resources.Res
+import gituserkmm.composeapp.generated.resources.common_retry
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -16,7 +18,7 @@ fun GitUserListEmpty(modifier: Modifier = Modifier, onRefresh: () -> Unit) {
     Box(modifier, contentAlignment = Alignment.Center) {
         Button(onClick = onRefresh) {
             Text(
-                text = stringRetry(),
+                text = stringResource(Res.string.common_retry),
                 style = MaterialTheme.typography.titleMedium
             )
         }

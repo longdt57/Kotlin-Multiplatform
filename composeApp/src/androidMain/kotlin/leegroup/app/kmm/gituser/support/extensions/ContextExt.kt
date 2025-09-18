@@ -4,10 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Patterns
-import leegroup.app.kmm.gituser.R
 import timber.log.Timber
-
-fun Context.stringNotSet() = getString(R.string.not_set)
 
 fun Context.formatAndOpenUrl(url: String) {
     val formattedUrl = url.formattedUrl()

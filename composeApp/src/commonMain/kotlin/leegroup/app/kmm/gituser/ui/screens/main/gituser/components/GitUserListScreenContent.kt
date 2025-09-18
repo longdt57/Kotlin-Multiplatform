@@ -11,7 +11,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import leegroup.app.kmm.gituser.GitUserListAppBar
 import leegroup.app.kmm.gituser.domain.models.GitUserModel
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.GitUserListAction
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.GitUserListViewModel

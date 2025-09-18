@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">GitUser KMM</string>
-
     <string name="git_user_list_screen_title">Github Users</string>
     <string name="git_user_detail_screen_title">User Details</string>
 

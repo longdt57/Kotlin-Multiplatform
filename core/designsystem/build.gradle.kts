@@ -62,10 +62,8 @@ kotlin {
     // See: https://kotlinlang.org/docs/multiplatform-hierarchy.html
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlin.stdlib)
             implementation(libs.kotlin.coroutines.core)
             implementation(libs.koin.core)
-
             implementation(libs.kotlinx.serialization.json)
 
             implementation(compose.runtime)
@@ -77,17 +75,14 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
 
             implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
-
-            implementation(libs.kotlin.coroutines.core)
-            implementation(libs.koin.core)
-
-//            implementation(libs.kotlin)
         }
 
         commonTest {
             dependencies {
                 implementation(libs.kotlin.test)
+                implementation(libs.kotlinx.coroutines.test)
+                implementation("io.ktor:ktor-client-mock:2.3.6")      // Mock engine for tests
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
             }
         }
 
@@ -96,14 +91,6 @@ kotlin {
                 // Add Android-specific dependencies here. Note that this source set depends on
                 // commonMain by default and will correctly pull the Android artifacts of any KMP
                 // dependencies declared in commonMain.
-            }
-        }
-
-        getByName("androidDeviceTest") {
-            dependencies {
-                implementation(libs.androidx.runner)
-                implementation(libs.androidx.core)
-                implementation(libs.androidx.test.junit)
             }
         }
 

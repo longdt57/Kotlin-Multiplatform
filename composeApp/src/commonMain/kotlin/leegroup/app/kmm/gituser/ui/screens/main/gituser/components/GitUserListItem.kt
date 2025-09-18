@@ -13,9 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import leegroup.app.kmm.gituser.UserAvatar
 import leegroup.app.kmm.gituser.ui.components.AppHorizontalDivider
 import leegroup.app.kmm.gituser.ui.components.LinkText
+import leegroup.app.kmm.gituser.ui.components.UserAvatar
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable

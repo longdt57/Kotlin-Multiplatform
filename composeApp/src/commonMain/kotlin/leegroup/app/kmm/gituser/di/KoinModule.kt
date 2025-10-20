@@ -6,6 +6,7 @@ import leegroup.app.kmm.gituser.domain.repositories.GitUserRepository
 import leegroup.app.kmm.gituser.domain.usecases.gituser.GetGitUserUseCase
 import leegroup.app.kmm.gituser.support.util.DispatchersProvider
 import leegroup.app.kmm.gituser.support.util.DispatchersProviderImpl
+import leegroup.app.kmm.gituser.ui.screens.main.gituser.GitUserListViewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -15,4 +16,5 @@ val sharedModule: Module = module {
     single<GitUserRepository> { GitUserRepositoryImpl(get()) }
     single { GetGitUserUseCase(get()) }
     single<DispatchersProvider> { DispatchersProviderImpl() }
+    factory { GitUserListViewModel(get(), get()) }
 }

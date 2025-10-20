@@ -6,26 +6,20 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import leegroup.app.kmm.gituser.support.extensions.collectAsEffect
 import leegroup.app.kmm.gituser.support.extensions.formatAndOpenUrl
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.components.GitUserListScreenContent
-import leegroup.module.designsystem.components.BaseScreen
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun GitUserListScreen(
-    viewModel: GitUserListViewModel = koinViewModel(),
     navigator: (destination: Any) -> Unit,
-) = BaseScreen(viewModel) {
+    viewModel: GitUserListViewModel = koinViewModel()
+) {
 
     viewModel.navigator.collectAsEffect { destination -> navigator(destination) }
-
-    LaunchedEffect(Unit) {
-        viewModel.handleAction(GitUserListAction.LoadIfEmpty)
-    }
 
     val context = LocalContext.current
 
@@ -37,8 +31,8 @@ fun GitUserListScreen(
             .statusBarsPadding(),
         viewModel = viewModel,
         onClick = { user ->
-        //            navigator(MainDestination.GitUserDetail.GitUserDetailLogin(user.login))
-                },
+            //            navigator(MainDestination.GitUserDetail.GitUserDetailLogin(user.login))
+        },
         onLinkClick = {
             context.formatAndOpenUrl(it)
         }

@@ -15,7 +15,7 @@ import leegroup.app.kmm.gituser.ui.models.GitUserListUiModel
 import leegroup.module.designsystem.ui.models.ErrorState
 import leegroup.module.designsystem.ui.viewmodel.BaseViewModel
 
-open class GitUserListViewModel(
+class GitUserListViewModel(
     private val dispatchersProvider: DispatchersProvider,
     private val useCase: GetGitUserUseCase,
 ) : BaseViewModel() {

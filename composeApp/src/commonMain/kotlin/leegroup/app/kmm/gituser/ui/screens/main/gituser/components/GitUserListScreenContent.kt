@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -14,6 +15,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import leegroup.app.kmm.gituser.domain.models.GitUserModel
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.GitUserListAction
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.GitUserListViewModel
+import leegroup.module.designsystem.components.BaseScreen
 import leegroup.module.designsystem.ui.models.LoadingState
 
 @Composable
@@ -22,13 +24,17 @@ fun GitUserListScreenContent(
     viewModel: GitUserListViewModel,
     onClick: (GitUserModel) -> Unit,
     onLinkClick: (String) -> Unit,
-) {
+) = BaseScreen(viewModel) {
     val uiModel by viewModel.uiModel.collectAsStateWithLifecycle()
     val loading by viewModel.loading.collectAsStateWithLifecycle()
     val isLoading by remember {
         derivedStateOf {
             loading is LoadingState.Loading
         }
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.handleAction(GitUserListAction.LoadIfEmpty)
     }
 
     Column(modifier = modifier) {

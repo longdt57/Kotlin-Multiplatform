@@ -53,7 +53,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation("media.kamel:kamel-image:0.9.0")
+            implementation(libs.kamel.image)
             implementation(projects.core.designsystem)
             implementation(compose.runtime)
             implementation(compose.foundation)

@@ -4,8 +4,8 @@ import leegroup.app.kmm.gituser.data.remote.ApiService
 import leegroup.app.kmm.gituser.data.repositories.GitUserRepositoryImpl
 import leegroup.app.kmm.gituser.domain.repositories.GitUserRepository
 import leegroup.app.kmm.gituser.domain.usecases.gituser.GetGitUserUseCase
-import leegroup.app.kmm.gituser.support.util.DispatchersProvider
-import leegroup.app.kmm.gituser.support.util.DispatchersProviderImpl
+import leegroup.module.core.util.DispatchersProvider
+import leegroup.module.core.util.DispatchersProviderImpl
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.GitUserListViewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

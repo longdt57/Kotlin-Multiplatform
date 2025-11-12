@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.support.extensions
+package leegroup.module.core.extensions.compose
 
 import androidx.compose.runtime.Composable
 import org.jetbrains.compose.resources.StringResource

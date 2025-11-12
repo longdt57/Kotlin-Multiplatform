@@ -9,12 +9,11 @@ plugins {
 
 kotlin {
 
-//    androidTarget()
     // Target declarations - add or remove as needed below. These define
     // which platforms this KMP module supports.
     // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
     androidLibrary {
-        namespace = "leegroup.module.designsystem"
+        namespace = "leegroup.module.core"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
 
@@ -35,7 +34,7 @@ kotlin {
     // A step-by-step guide on how to include this library in an XCode
     // project can be found here:
     // https://developer.android.com/kotlin/multiplatform/migrate
-    val xcfName = "core:designsystemKit"
+    val xcfName = "core:core-ktxKit"
 
     iosX64 {
         binaries.framework {
@@ -61,27 +60,21 @@ kotlin {
     // common to share sources between related targets.
     // See: https://kotlinlang.org/docs/multiplatform-hierarchy.html
     sourceSets {
-        commonMain.dependencies {
-            implementation(libs.kotlin.coroutines.core)
-            implementation(libs.koin.core)
-            implementation(libs.kotlinx.serialization.json)
+        commonMain {
+            dependencies {
+                implementation(compose.ui)
+                implementation(compose.components.resources)
 
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.materialIconsExtended)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-
-            implementation(libs.androidx.lifecycle.viewmodel)
+                implementation(libs.kotlin.coroutines.core)
+                implementation(libs.kotlinx.serialization.json)
+                implementation(libs.kotlin.stdlib)
+                // Add KMP dependencies here
+            }
         }
 
         commonTest {
             dependencies {
                 implementation(libs.kotlin.test)
-                implementation(libs.kotlinx.coroutines.test)
-                implementation(libs.ktor.client.mock)      // Mock engine for tests
             }
         }
 
@@ -90,6 +83,14 @@ kotlin {
                 // Add Android-specific dependencies here. Note that this source set depends on
                 // commonMain by default and will correctly pull the Android artifacts of any KMP
                 // dependencies declared in commonMain.
+            }
+        }
+
+        getByName("androidDeviceTest") {
+            dependencies {
+                implementation(libs.androidx.runner)
+                implementation(libs.androidx.core)
+                implementation(libs.androidx.test.junit)
             }
         }
 
@@ -104,12 +105,4 @@ kotlin {
         }
     }
 
-}
-
-compose.resources {
-    // Can public resources to use in parent module but is not available in preview UI so far.
-    // Currently apply actual/expect data type to get the resource.
-    publicResClass = true
-    // optional custom package res class:
-    // packageOfResClass = "kmpbase.core.resources.generated.resources"
 }

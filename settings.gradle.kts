@@ -30,3 +30,4 @@ dependencyResolutionManagement {
 
 include(":composeApp")
 include(":core:designsystem")
+include(":core:core-ktx")

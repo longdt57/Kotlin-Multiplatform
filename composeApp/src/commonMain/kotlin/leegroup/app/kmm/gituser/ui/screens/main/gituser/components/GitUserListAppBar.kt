@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import gituserkmm.composeapp.generated.resources.git_user_list_screen_title
 import gituserkmm.composeapp.generated.resources.Res as R
-import leegroup.module.designsystem.support.extensions.stringResourceOrNull
+import leegroup.module.core.extensions.compose.stringResourceOrNull
 import leegroup.module.designsystem.theme.ComposeTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 

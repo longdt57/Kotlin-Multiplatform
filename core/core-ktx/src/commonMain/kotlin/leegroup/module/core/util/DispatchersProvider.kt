@@ -1,4 +1,4 @@
-package leegroup.app.kmm.gituser.support.util
+package leegroup.module.core.util
 
 import kotlinx.coroutines.CoroutineDispatcher
 

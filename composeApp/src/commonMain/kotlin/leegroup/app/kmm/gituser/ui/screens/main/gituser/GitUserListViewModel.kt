@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import leegroup.app.kmm.gituser.domain.models.GitUserModel
 import leegroup.app.kmm.gituser.domain.usecases.gituser.GetGitUserUseCase
-import leegroup.app.kmm.gituser.support.util.DispatchersProvider
+import leegroup.module.core.util.DispatchersProvider
 import leegroup.app.kmm.gituser.ui.models.GitUserListUiModel
 import leegroup.module.designsystem.ui.models.ErrorState
 import leegroup.module.designsystem.ui.viewmodel.BaseViewModel

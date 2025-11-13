@@ -8,8 +8,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import gituserkmm.composeapp.generated.resources.Res
-import gituserkmm.composeapp.generated.resources.common_retry
+import gituserkmm.core.designsystem.generated.resources.Res
+import gituserkmm.core.designsystem.generated.resources.common_retry
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 

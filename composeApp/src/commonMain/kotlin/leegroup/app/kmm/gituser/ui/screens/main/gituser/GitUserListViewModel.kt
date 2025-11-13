@@ -12,6 +12,7 @@ import leegroup.app.kmm.gituser.domain.models.GitUserModel
 import leegroup.app.kmm.gituser.domain.usecases.gituser.GetGitUserUseCase
 import leegroup.module.core.util.DispatchersProvider
 import leegroup.app.kmm.gituser.ui.models.GitUserListUiModel
+import leegroup.module.data.network.ResponseMapper.asResult
 import leegroup.module.designsystem.ui.models.ErrorState
 import leegroup.module.designsystem.ui.viewmodel.BaseViewModel
 
@@ -40,13 +41,13 @@ class GitUserListViewModel(
         if (isLoading()) return
         useCase(since = getSince(), perPage = PER_PAGE)
             .injectLoading()
+            .asResult()
             .onEach { result ->
-                handleSuccess(result)
+                result
+                    .onSuccess { handleSuccess(it) }
+                    .onFailure { handleErrorAsMessage(it) }
             }
             .flowOn(dispatchersProvider.io)
-            .catch { e ->
-                handleError(e)
-            }
             .launchIn(viewModelScope)
     }
 

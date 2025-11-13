@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import leegroup.app.kmm.gituser.ui.AppNavGraph
-import leegroup.app.kmm.gituser.ui.theme.ComposeTheme
+import leegroup.module.designsystem.theme.ComposeTheme
 
 class MainActivity : ComponentActivity() {
 

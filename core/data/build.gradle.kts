@@ -2,19 +2,15 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.androidLint)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
 
-//    androidTarget()
     // Target declarations - add or remove as needed below. These define
     // which platforms this KMP module supports.
     // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
     androidLibrary {
-        namespace = "leegroup.module.designsystem"
+        namespace = "leegroup.module.data"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
 
@@ -35,7 +31,7 @@ kotlin {
     // A step-by-step guide on how to include this library in an XCode
     // project can be found here:
     // https://developer.android.com/kotlin/multiplatform/migrate
-    val xcfName = "core:designsystemKit"
+    val xcfName = "core:dataKit"
 
     iosX64 {
         binaries.framework {
@@ -61,23 +57,17 @@ kotlin {
     // common to share sources between related targets.
     // See: https://kotlinlang.org/docs/multiplatform-hierarchy.html
     sourceSets {
-        commonMain.dependencies {
-            implementation(projects.core.coreKtx)
-            implementation(projects.core.data)
+        commonMain {
+            dependencies {
+                implementation(projects.core.coreKtx)
 
-            implementation(libs.kotlin.coroutines.core)
-            implementation(libs.kotlinx.serialization.json)
-            implementation(libs.koin.core)
-
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.materialIconsExtended)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-
-            implementation(libs.androidx.lifecycle.viewmodel)
+                implementation(libs.kotlin.stdlib)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.kotlin.coroutines.core)
+                implementation(libs.kotlinx.serialization.json)
+            }
         }
 
         commonTest {
@@ -94,6 +84,14 @@ kotlin {
             }
         }
 
+        getByName("androidDeviceTest") {
+            dependencies {
+                implementation(libs.androidx.runner)
+                implementation(libs.androidx.core)
+                implementation(libs.androidx.test.junit)
+            }
+        }
+
         iosMain {
             dependencies {
                 // Add iOS-specific dependencies here. This a source set created by Kotlin Gradle
@@ -105,12 +103,4 @@ kotlin {
         }
     }
 
-}
-
-compose.resources {
-    // Can public resources to use in parent module but is not available in preview UI so far.
-    // Currently apply actual/expect data type to get the resource.
-    publicResClass = true
-    // optional custom package res class:
-    // packageOfResClass = "kmpbase.core.resources.generated.resources"
 }

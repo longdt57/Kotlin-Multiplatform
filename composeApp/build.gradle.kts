@@ -33,6 +33,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.ktor.client.android)
+            implementation(libs.ktor.client.okhttp)
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.androidx.lifecycle.viewmodel.compose)
@@ -53,9 +54,13 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(libs.kamel.image)
             implementation(projects.core.designsystem)
             implementation(projects.core.coreKtx)
+            implementation(projects.core.data)
+
+            implementation(libs.bundles.network)
+
+            implementation(libs.kamel.image)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -66,9 +71,6 @@ kotlin {
             implementation(libs.kotlin.coroutines.core)
             implementation(libs.koin.core)
 
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
 
             // Logging
             implementation(libs.kermit)
@@ -110,3 +112,10 @@ dependencies {
     debugImplementation(compose.uiTooling)
 }
 
+compose.resources {
+    // Can public resources to use in parent module but is not available in preview UI so far.
+    // Currently apply actual/expect data type to get the resource.
+    publicResClass = true
+    // optional custom package res class:
+    // packageOfResClass = "kmpbase.core.design_system.generated.resources"
+}

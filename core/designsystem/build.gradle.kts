@@ -65,9 +65,12 @@ kotlin {
             implementation(projects.core.coreKtx)
             implementation(projects.core.data)
 
+            implementation(libs.bundles.network)
+
             implementation(libs.kotlin.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.koin.core)
+
 
             implementation(compose.runtime)
             implementation(compose.foundation)

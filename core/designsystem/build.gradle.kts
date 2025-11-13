@@ -15,8 +15,8 @@ kotlin {
     // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
     androidLibrary {
         namespace = "leegroup.module.designsystem"
-        compileSdk = 36
-        minSdk = 24
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
 
         withHostTestBuilder {
         }
@@ -62,9 +62,12 @@ kotlin {
     // See: https://kotlinlang.org/docs/multiplatform-hierarchy.html
     sourceSets {
         commonMain.dependencies {
+            implementation(projects.core.coreKtx)
+            implementation(projects.core.data)
+
             implementation(libs.kotlin.coroutines.core)
-            implementation(libs.koin.core)
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.koin.core)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -79,10 +82,7 @@ kotlin {
 
         commonTest {
             dependencies {
-                implementation(libs.kotlin.test)
-                implementation(libs.kotlinx.coroutines.test)
-                implementation("io.ktor:ktor-client-mock:2.3.6")      // Mock engine for tests
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+                implementation(libs.bundles.test)
             }
         }
 

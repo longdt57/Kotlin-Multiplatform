@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Patterns
+import leegroup.module.core.extensions.formattedUrl
 import timber.log.Timber
 
 fun Context.formatAndOpenUrl(url: String) {

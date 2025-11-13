@@ -8,7 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import leegroup.app.kmm.gituser.support.extensions.collectAsEffect
+import leegroup.module.core.extensions.compose.collectAsEffect
 import leegroup.app.kmm.gituser.support.extensions.formatAndOpenUrl
 import leegroup.app.kmm.gituser.ui.screens.main.gituser.components.GitUserListScreenContent
 import org.koin.androidx.compose.koinViewModel

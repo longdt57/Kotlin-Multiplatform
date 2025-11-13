@@ -55,6 +55,7 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.kamel.image)
             implementation(projects.core.designsystem)
+            implementation(projects.core.coreKtx)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)

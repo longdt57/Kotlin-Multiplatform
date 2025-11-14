@@ -1,10 +1,12 @@
 package leegroup.app.kmm.gituser.ui
 
-import leegroup.app.kmm.gituser.ui.base.BaseDestination
+import kotlinx.serialization.Serializable
 
 sealed class AppDestination {
 
-    object RootNavGraph : BaseDestination("rootNavGraph")
+    @Serializable
+    object RootNavGraph
 
-    object MainNavGraph : BaseDestination("mainNavGraph")
+    @Serializable
+    object MainNavGraph
 }

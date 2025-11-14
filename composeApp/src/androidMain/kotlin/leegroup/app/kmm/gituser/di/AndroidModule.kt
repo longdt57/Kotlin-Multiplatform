@@ -1,6 +1,6 @@
 package leegroup.app.kmm.gituser.di
 
-import leegroup.app.kmm.gituser.ui.screens.main.gituser.GitUserListViewModel
+import leegroup.module.gituser.ui.screens.main.gituser.GitUserListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

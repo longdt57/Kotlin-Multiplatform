@@ -5,9 +5,9 @@ import gituserkmm.core.designsystem.generated.resources.popup_error_no_connectio
 import gituserkmm.core.designsystem.generated.resources.popup_error_unknown_title
 import io.ktor.client.call.body
 import io.ktor.client.network.sockets.ConnectTimeoutException
-import io.ktor.client.network.sockets.InterruptedIOException
 import io.ktor.client.plugins.ClientRequestException
 import io.ktor.util.network.UnresolvedAddressException
+import io.ktor.utils.io.CancellationException
 import kotlinx.io.IOException
 import leegroup.module.designsystem.ui.models.ErrorModel
 import leegroup.module.designsystem.ui.models.ErrorState
@@ -18,7 +18,7 @@ suspend fun Throwable.mapToErrorDialog(): ErrorState {
     return when (this) {
         is UnresolvedAddressException,
         is IOException,
-        is InterruptedIOException -> ErrorState.Network
+        is CancellationException -> ErrorState.Network
 
         is ConnectTimeoutException -> ErrorState.Server
         is ClientRequestException -> ErrorState.Api(asErrorModel())
@@ -50,7 +50,7 @@ internal suspend fun Throwable.mapToMessage(): Message {
 
         is UnresolvedAddressException,
         is ConnectTimeoutException,
-        is InterruptedIOException -> {
+        is CancellationException -> {
             Message.SnackBarMessage.buildError(
                 messageStringId = Res.string.popup_error_no_connection_title,
                 alternativeMessage = message

@@ -2,9 +2,9 @@ package leegroup.app.kmm.gituser
 
 import android.app.Application
 import leegroup.app.kmm.gituser.di.androidModule
-import leegroup.app.kmm.gituser.di.sharedModule
-import org.koin.core.context.startKoin
+import leegroup.module.gituser.di.sharedModule
 import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 import timber.log.Timber
 
 class AndroidApplication : Application() {

@@ -26,6 +26,8 @@ kotlin {
         }.configure {
             instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
+
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
     }
 
     // For iOS targets, this is also where you should
@@ -65,9 +67,12 @@ kotlin {
             implementation(projects.core.coreKtx)
             implementation(projects.core.data)
 
+            implementation(libs.bundles.network)
+
             implementation(libs.kotlin.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.koin.core)
+            implementation(libs.androidx.lifecycle.viewmodel)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -77,7 +82,6 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
-            implementation(libs.androidx.lifecycle.viewmodel)
         }
 
         commonTest {
@@ -106,6 +110,8 @@ kotlin {
     }
 
 }
+
+dependencies {}
 
 compose.resources {
     // Can public resources to use in parent module but is not available in preview UI so far.

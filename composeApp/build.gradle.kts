@@ -1,21 +1,14 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.easylauncher)
 }
 
 kotlin {
-    androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
-    }
+    androidTarget()
     
     listOf(
         iosX64(),
@@ -33,6 +26,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.ktor.client.android)
+            implementation(libs.ktor.client.okhttp)
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.androidx.lifecycle.viewmodel.compose)
@@ -41,7 +35,6 @@ kotlin {
             implementation(libs.koin.android)
             implementation(libs.koin.androidx.compose)
             implementation(libs.timber)
-            implementation(libs.bundles.coil)
 
             implementation(libs.androidx.material3)
             implementation(libs.androidx.navigation.compose)
@@ -53,9 +46,13 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(libs.kamel.image)
             implementation(projects.core.designsystem)
             implementation(projects.core.coreKtx)
+            implementation(projects.core.data)
+            implementation(projects.gituser)
+
+            implementation(libs.bundles.network)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -63,12 +60,10 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
+            implementation(libs.kamel.image)
             implementation(libs.kotlin.coroutines.core)
             implementation(libs.koin.core)
 
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
 
             // Logging
             implementation(libs.kermit)
@@ -96,10 +91,13 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
+        getByName("debug") {
+            isMinifyEnabled = false
+        }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     buildFeatures {
         buildConfig = true
@@ -109,4 +107,3 @@ android {
 dependencies {
     debugImplementation(compose.uiTooling)
 }
-

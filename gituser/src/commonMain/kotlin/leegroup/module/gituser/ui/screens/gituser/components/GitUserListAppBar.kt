@@ -1,4 +1,4 @@
-package leegroup.module.gituser.ui.screens.main.gituser.components
+package leegroup.module.gituser.ui.screens.gituser.components
 
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api

@@ -1,11 +1,12 @@
-package leegroup.app.kmm.gituser.ui.screens.main
+package leegroup.module.gituser.ui.navigation
 
-import androidx.annotation.Keep
 import kotlinx.serialization.Serializable
 
 sealed class GitDestination {
 
-    @Keep
+    @Serializable
+    object GitNavGraph
+
     @Serializable
     object GitUserList
 }

@@ -1,4 +1,4 @@
-package leegroup.module.gituser.ui.screens.main.gituser.components
+package leegroup.module.gituser.ui.screens.gituser.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

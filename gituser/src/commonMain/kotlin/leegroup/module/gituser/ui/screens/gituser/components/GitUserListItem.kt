@@ -1,4 +1,4 @@
-package leegroup.module.gituser.ui.screens.main.gituser.components
+package leegroup.module.gituser.ui.screens.gituser.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

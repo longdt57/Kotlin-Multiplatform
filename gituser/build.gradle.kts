@@ -67,11 +67,9 @@ kotlin {
                 implementation(projects.core.designsystem)
 
                 implementation(libs.bundles.network)
+                implementation(libs.bundles.jetbrain)
+                implementation(libs.bundles.koin)
 
-                implementation(libs.kotlin.coroutines.core)
-                implementation(libs.kotlinx.serialization.json)
-                implementation(libs.koin.core)
-                implementation(libs.androidx.lifecycle.viewmodel)
                 implementation(libs.kamel.image)
 
                 implementation(compose.runtime)
@@ -79,7 +77,7 @@ kotlin {
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
                 implementation(compose.ui)
-                implementation(compose.components.resources)
+//                implementation(compose.components.resources)
                 implementation(compose.components.uiToolingPreview)
             }
         }
@@ -99,11 +97,8 @@ kotlin {
 
         iosMain {
             dependencies {
-                // Add iOS-specific dependencies here. This a source set created by Kotlin Gradle
-                // Plugin (KGP) that each specific iOS target (e.g., iosX64) depends on as
-                // part of KMP’s default source set hierarchy. Note that this source set depends
-                // on common by default and will correctly pull the iOS artifacts of any
-                // KMP dependencies declared in commonMain.
+                implementation(libs.ktor.client.darwin)
+                implementation(libs.koin.core)
             }
         }
     }

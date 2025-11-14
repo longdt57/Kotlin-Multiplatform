@@ -25,19 +25,10 @@ kotlin {
         
         androidMain.dependencies {
             implementation(compose.preview)
-            implementation(libs.ktor.client.android)
-            implementation(libs.ktor.client.okhttp)
+            implementation(libs.bundles.androidNetwork)
+            implementation(libs.bundles.androidKoin)
             implementation(libs.androidx.activity.compose)
-            implementation(libs.androidx.lifecycle.viewmodel.ktx)
-            implementation(libs.androidx.lifecycle.viewmodel.compose)
-            implementation(libs.lifecycle.runtime.compose)
-            implementation(libs.kotlinx.collections.immutable)
-            implementation(libs.koin.android)
-            implementation(libs.koin.androidx.compose)
             implementation(libs.timber)
-
-            implementation(libs.androidx.material3)
-            implementation(libs.androidx.navigation.compose)
         }
 
         iosMain.dependencies {
@@ -52,6 +43,10 @@ kotlin {
             implementation(projects.gituser)
 
             implementation(libs.bundles.network)
+            implementation(libs.bundles.jetbrain)
+            implementation(libs.bundles.koin)
+
+            implementation(libs.kamel.image)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -59,11 +54,6 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-
-            implementation(libs.kamel.image)
-            implementation(libs.kotlin.coroutines.core)
-            implementation(libs.koin.core)
-
 
             // Logging
             implementation(libs.kermit)

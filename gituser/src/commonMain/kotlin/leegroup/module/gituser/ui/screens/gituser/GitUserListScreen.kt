@@ -1,4 +1,4 @@
-package leegroup.app.kmm.gituser.ui.screens.main.gituser
+package leegroup.module.gituser.ui.screens.gituser
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,12 +7,10 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import leegroup.app.kmm.gituser.support.extensions.formatAndOpenUrl
 import leegroup.module.core.extensions.compose.collectAsEffect
-import leegroup.module.gituser.ui.screens.main.gituser.GitUserListViewModel
-import leegroup.module.gituser.ui.screens.main.gituser.components.GitUserListScreenContent
-import org.koin.androidx.compose.koinViewModel
+import leegroup.module.designsystem.getPlatform
+import leegroup.module.gituser.ui.screens.gituser.components.GitUserListScreenContent
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun GitUserListScreen(
@@ -21,8 +19,6 @@ fun GitUserListScreen(
 ) {
 
     viewModel.navigator.collectAsEffect { destination -> navigator(destination) }
-
-    val context = LocalContext.current
 
     GitUserListScreenContent(
         modifier = Modifier
@@ -35,7 +31,7 @@ fun GitUserListScreen(
             //            navigator(MainDestination.GitUserDetail.GitUserDetailLogin(user.login))
         },
         onLinkClick = {
-            context.formatAndOpenUrl(it)
+            getPlatform().openUrl(it)
         }
     )
 }

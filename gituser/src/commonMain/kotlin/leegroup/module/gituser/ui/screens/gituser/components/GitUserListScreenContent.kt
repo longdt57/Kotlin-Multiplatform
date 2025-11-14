@@ -1,4 +1,4 @@
-package leegroup.module.gituser.ui.screens.main.gituser.components
+package leegroup.module.gituser.ui.screens.gituser.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import leegroup.module.gituser.domain.models.GitUserModel
-import leegroup.module.gituser.ui.screens.main.gituser.GitUserListAction
-import leegroup.module.gituser.ui.screens.main.gituser.GitUserListViewModel
+import leegroup.module.gituser.ui.screens.gituser.GitUserListAction
+import leegroup.module.gituser.ui.screens.gituser.GitUserListViewModel
 import leegroup.module.designsystem.components.BaseScreen
 import leegroup.module.designsystem.ui.models.LoadingState
 

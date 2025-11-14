@@ -2,6 +2,8 @@ package leegroup.module.gituser.data.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import leegroup.module.core.extensions.orZero
+import leegroup.module.gituser.domain.models.GitUserDetailModel
 
 @Serializable
 data class GitUserDetail(
@@ -28,4 +30,15 @@ data class GitUserDetail(
 
     @SerialName("following")
     val following: Int?
+)
+
+internal fun GitUserDetail.mapToDomain() = GitUserDetailModel(
+    id = id,
+    login = login,
+    name = name,
+    avatarUrl = avatarUrl,
+    blog = blog,
+    location = location,
+    followers = followers.orZero(),
+    following = following.orZero(),
 )

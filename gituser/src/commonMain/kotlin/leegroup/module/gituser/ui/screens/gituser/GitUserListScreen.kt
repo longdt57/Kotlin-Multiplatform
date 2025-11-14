@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import leegroup.module.core.extensions.compose.collectAsEffect
 import leegroup.module.designsystem.getPlatform
+import leegroup.module.gituser.ui.navigation.GitUserDestination
 import leegroup.module.gituser.ui.screens.gituser.components.GitUserListScreenContent
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -28,7 +29,7 @@ fun GitUserListScreen(
             .statusBarsPadding(),
         viewModel = viewModel,
         onClick = { user ->
-            //            navigator(MainDestination.GitUserDetail.GitUserDetailLogin(user.login))
+            navigator(GitUserDestination.GitUserDetail(user.login))
         },
         onLinkClick = {
             getPlatform().openUrl(it)

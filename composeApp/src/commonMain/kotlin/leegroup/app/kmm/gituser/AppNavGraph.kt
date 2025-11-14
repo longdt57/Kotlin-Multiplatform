@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import leegroup.module.designsystem.theme.ComposeTheme
-import leegroup.module.gituser.ui.navigation.GitDestination
+import leegroup.module.gituser.ui.navigation.GitUserDestination
 import leegroup.module.gituser.ui.navigation.gitNavGraph
 
 @Composable
@@ -16,7 +16,7 @@ fun AppNavGraph(
         NavHost(
             navController = navController,
             route = AppDestination.RootNavGraph::class,
-            startDestination = GitDestination.GitNavGraph
+            startDestination = GitUserDestination.GitUserRoot
         ) {
             gitNavGraph(navController = navController)
         }

@@ -1,3 +1,9 @@
 package leegroup.module.designsystem
 
-expect fun platform(): String
+interface Platform {
+    val name: String
+
+    fun openUrl(url: String)
+}
+
+expect fun getPlatform(): Platform

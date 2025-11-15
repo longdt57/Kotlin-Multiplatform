@@ -17,7 +17,7 @@ internal data class GitUserDetail(
 
     @SerialName("login")
     @ColumnInfo(name = "login")
-    val login: String,
+    val login: String?,
 
     @SerialName("name")
     @ColumnInfo(name = "name")
@@ -47,7 +47,7 @@ internal data class GitUserDetail(
 
 internal fun GitUserDetail.mapToDomain() = GitUserDetailModel(
     id = id,
-    login = login,
+    login = login.orEmpty(),
     name = name,
     avatarUrl = avatarUrl,
     blog = blog,

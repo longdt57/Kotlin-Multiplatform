@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "02762dd30ff9d80adf01710869567922",
+    "identityHash": "93eee73849a15bbd330333376d0c5756",
     "entities": [
       {
         "tableName": "GitUser",
@@ -40,7 +40,7 @@
       },
       {
         "tableName": "GitUserDetail",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `login` TEXT NOT NULL, `name` TEXT, `avatar_url` TEXT, `blog` TEXT, `location` TEXT, `followers` INTEGER, `following` INTEGER, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `login` TEXT, `name` TEXT, `avatar_url` TEXT, `blog` TEXT, `location` TEXT, `followers` INTEGER, `following` INTEGER, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -51,8 +51,7 @@
           {
             "fieldPath": "login",
             "columnName": "login",
-            "affinity": "TEXT",
-            "notNull": true
+            "affinity": "TEXT"
           },
           {
             "fieldPath": "name",
@@ -95,7 +94,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '02762dd30ff9d80adf01710869567922')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '93eee73849a15bbd330333376d0c5756')"
     ]
   }
 }

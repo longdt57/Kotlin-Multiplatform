@@ -75,7 +75,7 @@ kotlin {
                 implementation(libs.bundles.koin)
                 implementation(libs.bundles.datastore)
 
-                implementation(libs.kamel.image)
+                implementation(libs.bundles.coil)
 
                 implementation(compose.runtime)
                 implementation(compose.foundation)

@@ -2,6 +2,7 @@ package leegroup.app.kmm.gituser
 
 import android.app.Application
 import leegroup.app.kmm.gituser.di.androidModule
+import leegroup.app.kmm.gituser.di.appModule
 import leegroup.module.gituser.di.gitModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -13,6 +14,7 @@ class AndroidApplication : Application() {
         startKoin {
             androidContext(this@AndroidApplication)
             modules(gitModule)
+            modules(appModule)
             modules(androidModule)
         }
 

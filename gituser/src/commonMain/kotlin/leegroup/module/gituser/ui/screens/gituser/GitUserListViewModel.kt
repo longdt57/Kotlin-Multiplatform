@@ -60,7 +60,7 @@ class GitUserListViewModel(
 
     private fun handleSuccess(result: List<GitUserModel>) {
         _uiModel.update { oldValue ->
-            val users = oldValue.users.plus(result)
+            val users = oldValue.users.plus(result).distinctBy { it.id }
             oldValue.copy(users = users)
         }
     }

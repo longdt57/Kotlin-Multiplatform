@@ -3,6 +3,8 @@ package leegroup.module.data
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
 import okio.Path
 import okio.Path.Companion.toPath
 import org.koin.java.KoinJavaComponent.getKoin
@@ -12,6 +14,10 @@ class AndroidCorePlatform(
 ) : CorePlatform {
     override fun dataStorePath(name: String): Path {
         return context.filesDir.resolve(name).absolutePath.toPath()
+    }
+
+    override fun createHttpClient(): HttpClient {
+        return HttpClient(OkHttp)
     }
 
 }

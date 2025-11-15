@@ -67,7 +67,7 @@ class GitUserListViewModel(
 
     private fun isEmpty() = _uiModel.value.users.isEmpty()
 
-    private fun getSince() = _uiModel.value.users.size
+    private fun getSince() = _uiModel.value.users.lastOrNull()?.id ?: 0L
 
     companion object {
         const val PER_PAGE = 20

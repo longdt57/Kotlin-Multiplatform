@@ -6,7 +6,7 @@ import leegroup.module.gituser.data.models.GitUserDetail
 internal interface GitUserApiService {
 
     suspend fun getGitUser(
-        since: Int,
+        since: Long,
         perPage: Int,
     ): List<GitUser>
 

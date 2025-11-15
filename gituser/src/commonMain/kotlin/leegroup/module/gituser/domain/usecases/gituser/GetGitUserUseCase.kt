@@ -9,7 +9,7 @@ class GetGitUserUseCase(
     private val repository: GitUserRepository
 ) {
 
-    operator fun invoke(since: Int, perPage: Int): Flow<List<GitUserModel>> {
+    operator fun invoke(since: Long, perPage: Int): Flow<List<GitUserModel>> {
         return flow {
             val localData = repository.getLocal(since, perPage)
             if (localData.isEmpty()) {

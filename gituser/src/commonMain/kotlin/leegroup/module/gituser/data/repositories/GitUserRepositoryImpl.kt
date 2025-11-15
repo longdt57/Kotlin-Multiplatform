@@ -15,13 +15,13 @@ internal class GitUserRepositoryImpl(
     private val userDao: GitUserDao,
 ) : GitUserRepository {
 
-    override suspend fun getRemote(since: Int, perPage: Int) = transform {
+    override suspend fun getRemote(since: Long, perPage: Int) = transform {
         val users = appService.getGitUser(since = since, perPage = perPage)
         saveToLocal(users)
         mapToDomain(users)
     }
 
-    override suspend fun getLocal(since: Int, perPage: Int): List<GitUserModel> {
+    override suspend fun getLocal(since: Long, perPage: Int): List<GitUserModel> {
         return userDao
             .getUsers(since = since, perPage = perPage)
             .let { mapToDomain(it) }

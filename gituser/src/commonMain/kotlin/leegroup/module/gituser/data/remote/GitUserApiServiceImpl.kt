@@ -10,7 +10,7 @@ internal class GitUserApiServiceImpl(
     private val httpClient: HttpClient
 ) : GitUserApiService {
     override suspend fun getGitUser(
-        since: Int,
+        since: Long,
         perPage: Int
     ): List<GitUser> {
         return httpClient.get(GET_USER) {

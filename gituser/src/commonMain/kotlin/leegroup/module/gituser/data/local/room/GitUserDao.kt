@@ -9,5 +9,5 @@ import leegroup.module.gituser.data.models.GitUser
 internal interface GitUserDao : BaseDao<GitUser> {
 
     @Query("SELECT * FROM GitUser WHERE id > :since ORDER BY id LIMIT :perPage")
-    suspend fun getUsers(since: Int, perPage: Int): List<GitUser>
+    suspend fun getUsers(since: Long, perPage: Int): List<GitUser>
 }

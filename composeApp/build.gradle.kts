@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.easylauncher)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -29,6 +30,7 @@ kotlin {
             implementation(libs.bundles.androidKoin)
             implementation(libs.androidx.activity.compose)
             implementation(libs.timber)
+            implementation(libs.androidx.room.sqlite.wrapper)
         }
 
         iosMain.dependencies {

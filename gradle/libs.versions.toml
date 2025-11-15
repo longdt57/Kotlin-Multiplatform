@@ -36,6 +36,10 @@ runner = "1.7.0"
 core = "1.7.0"
 kotlinxSerializationJson = "1.9.0"
 turbine = "1.2.1"
+room = "2.8.3"
+roommultiplatform = "2.7.0-alpha01"
+sqlite = "2.6.1"
+ksp = "2.2.21-2.0.4" # Should match kotlin version
 
 [libraries]
 androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
@@ -87,12 +91,22 @@ androidx-runner = { group = "androidx.test", name = "runner", version.ref = "run
 androidx-core = { group = "androidx.test", name = "core", version.ref = "core" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 
+androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+androidx-room-runtime-multiplatform = { module = "androidx.room:room-runtime-multiplatform", version.ref = "roommultiplatform" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+
+# Optional SQLite Wrapper available in version 2.8.0 and higher
+androidx-room-sqlite-wrapper = { module = "androidx.room:room-sqlite-wrapper", version.ref = "room" }
+
 [bundles]
 androidKoin = ["koin-android", "koin-androidx-compose"]
 koin = ["koin-core", "koin-compose-viewmodel"]
 coil = ["coil", "coil-compose", "coil-gif", "coil-svg"]
 test = ["kotlin-test", "ktor-client-mock", "kotlinx-coroutines-test", "turbine"]
 network = ["ktor-client-core", "ktor-serialization-kotlinx-json", "ktor-client-content-negotiation"]
+room = ["androidx-room-runtime", "androidx-sqlite-bundled"]
+datastore = ["androidx-datastore", "androidx-datastore-preferences"]
 androidNetwork = ["ktor-client-android", "ktor-client-okhttp"]
 jetbrain = ["kotlinx-serialization-json", "kotlinx-collections-immutable", "navigation-compose",
     "kotlin-coroutines-core", "ktor-serialization-kotlinx-json",
@@ -110,3 +124,5 @@ androidLint = { id = "com.android.lint", version.ref = "agp" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 easylauncher = { id = "com.starter.easylauncher", version.ref = "easyLauncher" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidx-room = { id = "androidx.room", version.ref = "room" }

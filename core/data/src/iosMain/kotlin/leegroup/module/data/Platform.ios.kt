@@ -1,5 +1,7 @@
 package leegroup.module.data
 
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import kotlinx.cinterop.ExperimentalForeignApi
 import okio.Path
 import okio.Path.Companion.toPath
@@ -20,6 +22,25 @@ class IOSCorePlatform : CorePlatform {
         )
         return (requireNotNull(documentDirectory).path + "/$name").toPath()
     }
+}
+
+actual inline fun <reified T : RoomDatabase> getDatabaseBuilder(name: String): RoomDatabase.Builder<T> {
+    val dbFilePath = documentDirectory() + "/$name"
+    return Room.databaseBuilder<T>(
+        name = dbFilePath,
+    )
+}
+
+@OptIn(ExperimentalForeignApi::class)
+fun documentDirectory(): String {
+    val documentDirectory = NSFileManager.defaultManager.URLForDirectory(
+        directory = NSDocumentDirectory,
+        inDomain = NSUserDomainMask,
+        appropriateForURL = null,
+        create = false,
+        error = null,
+    )
+    return requireNotNull(documentDirectory?.path)
 }
 
 actual fun getCorePlatform(): CorePlatform = IOSCorePlatform()

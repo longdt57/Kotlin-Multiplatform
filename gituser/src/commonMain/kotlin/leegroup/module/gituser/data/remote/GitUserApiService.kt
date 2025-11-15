@@ -9,7 +9,7 @@ import kotlinx.serialization.json.Json
 import leegroup.module.gituser.data.models.GitUser
 import leegroup.module.gituser.data.models.GitUserDetail
 
-class ApiService {
+internal class GitUserApiService {
 
     private val httpClient = HttpClient {
         install(ContentNegotiation) {
@@ -37,7 +37,7 @@ class ApiService {
         return httpClient.get(url).body()
     }
 
-    companion object {
+    companion object Companion {
         private const val BASE_URL = "https://api.github.com/"
     }
 }

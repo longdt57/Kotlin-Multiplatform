@@ -60,11 +60,12 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(projects.core.coreKtx)
+                implementation(libs.bundles.koin)
+                implementation(libs.bundles.room)
+                implementation(libs.bundles.datastore)
+                implementation(libs.bundles.network)
 
                 implementation(libs.kotlin.stdlib)
-                implementation(libs.ktor.client.core)
-                implementation(libs.ktor.client.content.negotiation)
-                implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.kotlin.coroutines.core)
                 implementation(libs.kotlinx.serialization.json)
             }
@@ -78,27 +79,13 @@ kotlin {
 
         androidMain {
             dependencies {
-                // Add Android-specific dependencies here. Note that this source set depends on
-                // commonMain by default and will correctly pull the Android artifacts of any KMP
-                // dependencies declared in commonMain.
-            }
-        }
-
-        getByName("androidDeviceTest") {
-            dependencies {
-                implementation(libs.androidx.runner)
-                implementation(libs.androidx.core)
-                implementation(libs.androidx.test.junit)
+                implementation(libs.bundles.androidNetwork)
             }
         }
 
         iosMain {
             dependencies {
-                // Add iOS-specific dependencies here. This a source set created by Kotlin Gradle
-                // Plugin (KGP) that each specific iOS target (e.g., iosX64) depends on as
-                // part of KMP’s default source set hierarchy. Note that this source set depends
-                // on common by default and will correctly pull the iOS artifacts of any
-                // KMP dependencies declared in commonMain.
+                implementation(libs.ktor.client.darwin)
             }
         }
     }

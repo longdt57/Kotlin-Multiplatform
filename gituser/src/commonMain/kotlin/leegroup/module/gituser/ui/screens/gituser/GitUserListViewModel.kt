@@ -60,14 +60,14 @@ class GitUserListViewModel(
 
     private fun handleSuccess(result: List<GitUserModel>) {
         _uiModel.update { oldValue ->
-            val users = oldValue.users.plus(result)
+            val users = oldValue.users.plus(result).distinctBy { it.id }
             oldValue.copy(users = users)
         }
     }
 
     private fun isEmpty() = _uiModel.value.users.isEmpty()
 
-    private fun getSince() = _uiModel.value.users.size
+    private fun getSince() = _uiModel.value.users.lastOrNull()?.id ?: 0L
 
     companion object {
         const val PER_PAGE = 20

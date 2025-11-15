@@ -4,7 +4,7 @@ import platform.Foundation.NSURL
 import platform.UIKit.UIApplication
 import platform.UIKit.UIDevice
 
-class IOSPlatform: Platform {
+class IOSDesignPlatform: DesignPlatform {
     override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
     override fun openUrl(url: String) {
         val nsUrl = NSURL.URLWithString(url) ?: return
@@ -16,4 +16,4 @@ class IOSPlatform: Platform {
     }
 }
 
-actual fun getPlatform(): Platform = IOSPlatform()
+actual fun getDesignPlatform(): DesignPlatform = IOSDesignPlatform()

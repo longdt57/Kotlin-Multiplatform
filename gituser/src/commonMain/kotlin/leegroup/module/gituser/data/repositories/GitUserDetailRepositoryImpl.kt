@@ -1,14 +1,15 @@
 package leegroup.module.gituser.data.repositories
 
+import leegroup.module.gituser.data.local.room.GitUserDetailDao
 import leegroup.module.gituser.data.models.GitUserDetail
 import leegroup.module.gituser.data.models.mapToDomain
-import leegroup.module.gituser.data.remote.ApiService
+import leegroup.module.gituser.data.remote.GitUserApiService
 import leegroup.module.gituser.domain.models.GitUserDetailModel
 import leegroup.module.gituser.domain.repositories.GitUserDetailRepository
 
-internal class GitUserDetailRepositoryImpl constructor(
-    private val appService: ApiService,
-//    private val userDao: GitUserDetailDao,
+internal class GitUserDetailRepositoryImpl(
+    private val appService: GitUserApiService,
+    private val userDao: GitUserDetailDao,
 ) : GitUserDetailRepository {
 
     override suspend fun getRemote(login: String): GitUserDetailModel {
@@ -19,11 +20,11 @@ internal class GitUserDetailRepositoryImpl constructor(
     }
 
     override suspend fun getLocal(login: String): GitUserDetailModel? {
-        return null //userDao.getUserDetail(login)?.let { mapToDomain(it) }
+        return userDao.getUserDetail(login)?.let { mapToDomain(it) }
     }
 
     private suspend fun saveToLocal(user: GitUserDetail) {
-        // userDao.upsert(user)
+        userDao.upsert(user)
     }
 
     private fun mapToDomain(user: GitUserDetail) = user.mapToDomain()

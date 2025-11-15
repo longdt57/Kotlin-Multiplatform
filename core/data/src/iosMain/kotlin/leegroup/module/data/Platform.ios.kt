@@ -1,3 +1,52 @@
 package leegroup.module.data
 
-actual fun platform() = "iOS"
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.darwin.Darwin
+import kotlinx.cinterop.ExperimentalForeignApi
+import okio.Path
+import okio.Path.Companion.toPath
+import platform.Foundation.NSDocumentDirectory
+import platform.Foundation.NSFileManager
+import platform.Foundation.NSURL
+import platform.Foundation.NSUserDomainMask
+
+class IOSCorePlatform : CorePlatform {
+    @OptIn(ExperimentalForeignApi::class)
+    override fun dataStorePath(name: String): Path {
+        val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(
+            directory = NSDocumentDirectory,
+            inDomain = NSUserDomainMask,
+            appropriateForURL = null,
+            create = false,
+            error = null,
+        )
+        return (requireNotNull(documentDirectory).path + "/$name").toPath()
+    }
+
+    override fun createHttpClient(): HttpClient {
+        return HttpClient(Darwin)
+    }
+}
+
+actual inline fun <reified T : RoomDatabase> getDatabaseBuilder(name: String): RoomDatabase.Builder<T> {
+    val dbFilePath = documentDirectory() + "/$name"
+    return Room.databaseBuilder<T>(
+        name = dbFilePath,
+    )
+}
+
+@OptIn(ExperimentalForeignApi::class)
+fun documentDirectory(): String {
+    val documentDirectory = NSFileManager.defaultManager.URLForDirectory(
+        directory = NSDocumentDirectory,
+        inDomain = NSUserDomainMask,
+        appropriateForURL = null,
+        create = false,
+        error = null,
+    )
+    return requireNotNull(documentDirectory?.path)
+}
+
+actual fun getCorePlatform(): CorePlatform = IOSCorePlatform()

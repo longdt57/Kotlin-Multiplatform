@@ -1,3 +1,15 @@
 package leegroup.module.data
 
-expect fun platform(): String
+import androidx.room.RoomDatabase
+import io.ktor.client.HttpClient
+import okio.Path
+
+interface CorePlatform {
+    fun dataStorePath(name: String): Path
+    fun createHttpClient(): HttpClient
+
+}
+
+expect inline fun <reified T : RoomDatabase> getDatabaseBuilder(name: String): RoomDatabase.Builder<T>
+
+expect fun getCorePlatform(): CorePlatform

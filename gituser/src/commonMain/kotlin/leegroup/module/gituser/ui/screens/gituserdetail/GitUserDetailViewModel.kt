@@ -64,7 +64,7 @@ internal class GitUserDetailViewModel constructor(
             .flowOn(dispatchersProvider.io)
             .catch { e ->
                 if (isDataEmpty()) {
-                    handleError(e)  // Show error if data is empty
+                    handleErrorAsMessage(e)  // Show error if data is empty
                 } else {
 //                    Timber.e(e)
                 }

@@ -4,7 +4,8 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
-    alias(libs.plugins.easylauncher)
+//    alias(libs.plugins.easylauncher)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -29,6 +30,7 @@ kotlin {
             implementation(libs.bundles.androidKoin)
             implementation(libs.androidx.activity.compose)
             implementation(libs.timber)
+            implementation(libs.androidx.room.sqlite.wrapper)
         }
 
         iosMain.dependencies {
@@ -45,8 +47,7 @@ kotlin {
             implementation(libs.bundles.network)
             implementation(libs.bundles.jetbrain)
             implementation(libs.bundles.koin)
-
-            implementation(libs.kamel.image)
+            implementation(libs.bundles.coil)
 
             implementation(compose.runtime)
             implementation(compose.foundation)

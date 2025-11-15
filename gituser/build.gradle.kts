@@ -5,7 +5,10 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidx.room)
 }
+
 
 kotlin {
 
@@ -66,11 +69,13 @@ kotlin {
                 implementation(projects.core.data)
                 implementation(projects.core.designsystem)
 
+                implementation(libs.bundles.room)
                 implementation(libs.bundles.network)
                 implementation(libs.bundles.jetbrain)
                 implementation(libs.bundles.koin)
+                implementation(libs.bundles.datastore)
 
-                implementation(libs.kamel.image)
+                implementation(libs.bundles.coil)
 
                 implementation(compose.runtime)
                 implementation(compose.foundation)
@@ -90,8 +95,8 @@ kotlin {
 
         androidMain {
             dependencies {
-                implementation(libs.koin.android)
-                implementation(libs.koin.androidx.compose)
+                implementation(libs.androidx.room.sqlite.wrapper)
+                implementation(libs.bundles.androidKoin)
             }
         }
 
@@ -103,4 +108,25 @@ kotlin {
         }
     }
 
+}
+
+// In your shared module's build.gradle.kts
+dependencies {
+    // Room runtime
+    commonMainImplementation(libs.androidx.room.runtime)
+
+    // Room SQLite driver (for all targets)
+    commonMainImplementation(libs.androidx.sqlite.bundled)
+
+    // KSP compiler for each target
+    add("kspAndroid", libs.androidx.room.compiler)
+    add("kspIosSimulatorArm64", libs.androidx.room.compiler)
+    add("kspIosX64", libs.androidx.room.compiler)
+    add("kspIosArm64", libs.androidx.room.compiler)
+    // Add other KSP targets as needed for your project (e.g., kspDesktop)
+}
+
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }

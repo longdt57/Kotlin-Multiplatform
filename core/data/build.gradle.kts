@@ -60,6 +60,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(projects.core.coreKtx)
+                implementation(libs.bundles.koin)
 
                 implementation(libs.kotlin.stdlib)
                 implementation(libs.ktor.client.core)
@@ -67,6 +68,11 @@ kotlin {
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.kotlin.coroutines.core)
                 implementation(libs.kotlinx.serialization.json)
+
+                // DataStore library
+                implementation(libs.androidx.datastore)
+                // The Preferences DataStore library
+                implementation(libs.androidx.datastore.preferences)
             }
         }
 

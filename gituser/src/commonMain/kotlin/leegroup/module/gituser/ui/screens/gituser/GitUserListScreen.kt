@@ -8,7 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import leegroup.module.core.extensions.compose.collectAsEffect
-import leegroup.module.designsystem.getPlatform
+import leegroup.module.designsystem.getDesignPlatform
 import leegroup.module.gituser.ui.navigation.GitUserDestination
 import leegroup.module.gituser.ui.screens.gituser.components.GitUserListScreenContent
 import org.koin.compose.viewmodel.koinViewModel
@@ -32,7 +32,7 @@ fun GitUserListScreen(
             navigator(GitUserDestination.GitUserDetail(user.login))
         },
         onLinkClick = {
-            getPlatform().openUrl(it)
+            getDesignPlatform().openUrl(it)
         }
     )
 }

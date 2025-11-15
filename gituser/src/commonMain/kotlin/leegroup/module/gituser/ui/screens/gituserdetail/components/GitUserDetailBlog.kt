@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import gituserkmm.core.designsystem.generated.resources.Res
 import gituserkmm.core.designsystem.generated.resources.blog
-import leegroup.module.designsystem.getPlatform
+import leegroup.module.designsystem.getDesignPlatform
 import leegroup.module.designsystem.theme.ComposeTheme
 import leegroup.module.designsystem.theme.GreySoft200
 import org.jetbrains.compose.resources.stringResource
@@ -27,7 +27,7 @@ internal fun GitUserDetailBlog(modifier: Modifier = Modifier, blog: String) {
         Text(
             modifier = Modifier
                 .clickable {
-                    getPlatform().openUrl(blog)
+                    getDesignPlatform().openUrl(blog)
                 }
                 .padding(vertical = 8.dp),
             text = blog,

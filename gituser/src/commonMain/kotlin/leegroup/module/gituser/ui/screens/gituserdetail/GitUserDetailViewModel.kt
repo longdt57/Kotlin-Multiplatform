@@ -68,6 +68,7 @@ internal class GitUserDetailViewModel constructor(
                 } else {
 //                    Timber.e(e)
                 }
+                hideLoading()
             }
             .launchIn(viewModelScope)
     }

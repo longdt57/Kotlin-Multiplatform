@@ -4,9 +4,9 @@ import io.ktor.client.network.sockets.SocketTimeoutException
 import io.ktor.client.plugins.ResponseException
 import io.ktor.client.statement.bodyAsText
 import io.ktor.util.network.UnresolvedAddressException
-import io.ktor.utils.io.errors.IOException
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
+import kotlinx.io.IOException
 import kotlinx.serialization.SerializationException
 import leegroup.module.gituser.data.remote.responses.ErrorResponse
 import leegroup.module.gituser.data.remote.responses.mapToError

@@ -20,7 +20,6 @@ data class SnackbarHostStateManager(
             SnackbarType.Success -> success
             SnackbarType.Error -> error
             SnackbarType.Warning -> warning
-            else -> success
         }
     }
 }

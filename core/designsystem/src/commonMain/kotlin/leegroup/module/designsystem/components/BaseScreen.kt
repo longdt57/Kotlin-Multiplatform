@@ -55,7 +55,7 @@ fun MessageObserver(
             is Message.SnackBarMessage -> {
                 snackbarJob?.cancel()
                 snackbarJob = coroutineScope.launch {
-                    val message = event.getMessage()
+                    val message = event.message
                     snackbarStateManager.getHostState(event.type).showSnackbar(message)
                 }
             }

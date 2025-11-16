@@ -1,31 +1,29 @@
 package leegroup.module.designsystem.ui.models
 
-import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.getString
-
 sealed interface Message {
 
     class SnackBarMessage(
-        val messageStringId: StringResource? = null,
-        val alternativeMessage: String? = null,
+        val message: String,
         val type: SnackbarType,
     ) : Message {
 
-        suspend fun getMessage(): String {
-            return alternativeMessage.takeUnless { it.isNullOrBlank() } ?: messageStringId?.let {
-                getString(it)
-            }.orEmpty()
-        }
-
         companion object {
-            fun buildSuccess(msgId: StringResource? = null, debugMsg: String? = null) =
-                SnackBarMessage(msgId, debugMsg, SnackbarType.Success)
+            fun buildSuccess(message: String?) = SnackBarMessage(
+                message = message.orEmpty(),
+                SnackbarType.Success
+            )
 
-            fun buildWarning(msgId: StringResource? = null, debugMsg: String? = null) =
-                SnackBarMessage(msgId, debugMsg, SnackbarType.Warning)
+            fun buildWarning(message: String?) = SnackBarMessage(
+                message = message.orEmpty(),
+                SnackbarType.Warning
+            )
 
-            fun buildError(messageStringId: StringResource? = null, alternativeMessage: String? = null) =
-                SnackBarMessage(messageStringId, alternativeMessage, SnackbarType.Error)
+            fun buildError(
+                message: String?
+            ) = SnackBarMessage(
+                message = message.orEmpty(),
+                SnackbarType.Error
+            )
         }
     }
 

@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import leegroup.module.designsystem.support.extensions.getString
 import leegroup.module.designsystem.support.extensions.mapToErrorDialog
 import leegroup.module.designsystem.support.extensions.mapToMessage
 import leegroup.module.designsystem.ui.models.ErrorState
@@ -88,17 +89,30 @@ abstract class BaseViewModel : ViewModel() {
     }
 }
 
-fun BaseViewModel.sendSuccessMessage(
+suspend fun BaseViewModel.sendSuccessMessage(
     messageStringId: StringResource? = null,
     alternativeMessage: String? = null
 ) {
-    sendMessage(Message.SnackBarMessage.buildSuccess(messageStringId, alternativeMessage))
+    sendMessage(
+        Message.SnackBarMessage.buildSuccess(
+            getString(
+                messageStringId,
+                alternativeMessage
+            )
+        )
+    )
 }
 
-
-fun BaseViewModel.sendErrorMessage(
+suspend fun BaseViewModel.sendErrorMessage(
     messageStringId: StringResource? = null,
     alternativeMessage: String? = null
 ) {
-    sendMessage(Message.SnackBarMessage.buildError(messageStringId, alternativeMessage))
+    sendMessage(
+        Message.SnackBarMessage.buildError(
+            getString(
+                messageStringId,
+                alternativeMessage
+            )
+        )
+    )
 }

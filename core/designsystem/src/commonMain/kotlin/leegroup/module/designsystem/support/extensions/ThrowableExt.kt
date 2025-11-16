@@ -35,16 +35,20 @@ internal suspend fun Throwable.mapToMessage(): Message {
     return when (this) {
         is ErrorModel -> {
             Message.SnackBarMessage.buildError(
-                messageStringId = errorMapping[code],
-                alternativeMessage = message
+                getString(
+                    msgId = errorMapping[code],
+                    debugMsg = message
+                )
             )
         }
 
         is ClientRequestException -> {
             val error = asErrorModel()
             Message.SnackBarMessage.buildError(
-                messageStringId = errorMapping[error?.code],
-                alternativeMessage = message
+                getString(
+                    msgId = errorMapping[error?.code],
+                    debugMsg = message
+                )
             )
         }
 
@@ -52,15 +56,19 @@ internal suspend fun Throwable.mapToMessage(): Message {
         is ConnectTimeoutException,
         is CancellationException -> {
             Message.SnackBarMessage.buildError(
-                messageStringId = Res.string.popup_error_no_connection_title,
-                alternativeMessage = message
+                getString(
+                    msgId = Res.string.popup_error_no_connection_title,
+                    debugMsg = message
+                )
             )
         }
 
         else -> {
             Message.SnackBarMessage.buildError(
-                messageStringId = Res.string.popup_error_unknown_title,
-                alternativeMessage = message
+                getString(
+                    msgId = Res.string.popup_error_unknown_title,
+                    debugMsg = message
+                )
             )
         }
     }

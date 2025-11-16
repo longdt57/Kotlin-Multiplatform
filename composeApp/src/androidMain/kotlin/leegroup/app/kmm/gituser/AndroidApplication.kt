@@ -3,6 +3,7 @@ package leegroup.app.kmm.gituser
 import android.app.Application
 import leegroup.app.kmm.gituser.di.androidModule
 import leegroup.app.kmm.gituser.di.appModule
+import leegroup.module.data.KmpApplication
 import leegroup.module.gituser.di.gitModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -11,6 +12,7 @@ import timber.log.Timber
 class AndroidApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        KmpApplication.application = this
         startKoin {
             androidContext(this@AndroidApplication)
             modules(gitModule)

@@ -60,7 +60,6 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(projects.core.coreKtx)
-                implementation(libs.bundles.koin)
                 implementation(libs.bundles.room)
                 implementation(libs.bundles.datastore)
                 implementation(libs.bundles.network)
@@ -80,7 +79,6 @@ kotlin {
         androidMain {
             dependencies {
                 implementation(libs.bundles.androidNetwork)
-                implementation(libs.bundles.androidKoin)
             }
         }
 

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.map
 import leegroup.module.core.util.JsonUtil
 import leegroup.module.data.getCorePlatform
 
-abstract class BaseDataStore(
+abstract class BaseKMPDataStore(
     prefName: String,
 ) {
 

@@ -8,7 +8,6 @@ import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.okhttp.OkHttp
 import okio.Path
 import okio.Path.Companion.toPath
-import org.koin.java.KoinJavaComponent.getKoin
 
 class AndroidCorePlatform(
     private val context: Context,
@@ -24,7 +23,7 @@ class AndroidCorePlatform(
 }
 
 actual inline fun <reified T : RoomDatabase> getDatabaseBuilder(name: String): RoomDatabase.Builder<T> {
-    val appContext = getKoin().get<Context>().applicationContext
+    val appContext = KmpApplication.application
     val dbFile = appContext.getDatabasePath(name)
     return Room.databaseBuilder<T>(
         context = appContext,
@@ -32,4 +31,4 @@ actual inline fun <reified T : RoomDatabase> getDatabaseBuilder(name: String): R
     )
 }
 
-actual fun getCorePlatform(): CorePlatform = AndroidCorePlatform(getKoin().get<Context>())
+actual fun getCorePlatform(): CorePlatform = AndroidCorePlatform(KmpApplication.application)

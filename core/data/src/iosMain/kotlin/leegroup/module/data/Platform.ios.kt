@@ -3,6 +3,7 @@ package leegroup.module.data
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import io.ktor.client.HttpClient
+import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.darwin.Darwin
 import kotlinx.cinterop.ExperimentalForeignApi
 import okio.Path
@@ -25,8 +26,8 @@ class IOSCorePlatform : CorePlatform {
         return (requireNotNull(documentDirectory).path + "/$name").toPath()
     }
 
-    override fun createHttpClient(): HttpClient {
-        return HttpClient(Darwin)
+    override fun createHttpClient(block: HttpClientConfig<*>.() -> Unit): HttpClient {
+        return HttpClient(Darwin, block)
     }
 }
 

@@ -2,11 +2,12 @@ package leegroup.module.data
 
 import androidx.room.RoomDatabase
 import io.ktor.client.HttpClient
+import io.ktor.client.HttpClientConfig
 import okio.Path
 
 interface CorePlatform {
     fun dataStorePath(name: String): Path
-    fun createHttpClient(): HttpClient
+    fun createHttpClient(block: HttpClientConfig<*>.() -> Unit): HttpClient
 
 }
 

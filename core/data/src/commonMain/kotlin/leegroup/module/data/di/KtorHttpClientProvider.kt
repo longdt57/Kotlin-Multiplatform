@@ -20,7 +20,7 @@ object KtorHttpClientProvider {
         configs: (HttpClientConfig<*>) -> Unit,
         block: DefaultRequest.DefaultRequestBuilder.() -> Unit
     ): HttpClient {
-        return getCorePlatform().createHttpClient().config {
+        return getCorePlatform().createHttpClient {
             configs(this)
             install(ContentNegotiation) {
                 json(JsonUtil.json)

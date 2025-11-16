@@ -80,6 +80,7 @@ kotlin {
         androidMain {
             dependencies {
                 implementation(libs.bundles.androidNetwork)
+                implementation(libs.bundles.androidKoin)
             }
         }
 

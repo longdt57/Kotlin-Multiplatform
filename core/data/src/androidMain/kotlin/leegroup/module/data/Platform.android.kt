@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import io.ktor.client.HttpClient
+import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.okhttp.OkHttp
 import okio.Path
 import okio.Path.Companion.toPath
@@ -16,8 +17,8 @@ class AndroidCorePlatform(
         return context.filesDir.resolve(name).absolutePath.toPath()
     }
 
-    override fun createHttpClient(): HttpClient {
-        return HttpClient(OkHttp)
+    override fun createHttpClient(block: HttpClientConfig<*>.() -> Unit): HttpClient {
+        return HttpClient(OkHttp, block)
     }
 
 }

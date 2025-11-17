@@ -65,7 +65,7 @@ kotlin {
                 implementation(compose.ui)
                 implementation(compose.components.resources)
 
-                implementation(libs.kotlin.coroutines.core)
+                implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.kotlin.stdlib)
                 // Add KMP dependencies here

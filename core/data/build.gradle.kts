@@ -65,7 +65,7 @@ kotlin {
                 implementation(libs.bundles.network)
 
                 implementation(libs.kotlin.stdlib)
-                implementation(libs.kotlin.coroutines.core)
+                implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.kotlinx.serialization.json)
             }
         }

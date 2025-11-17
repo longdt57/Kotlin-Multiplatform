@@ -1,16 +1,15 @@
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.nowinandroid.kmp.application)
+    alias(libs.plugins.nowinandroid.kmp.application.compose)
+    alias(libs.plugins.nowinandroid.kmp.koin)
+    alias(libs.plugins.nowinandroid.kmp.network)
     alias(libs.plugins.kotlinSerialization)
 //    alias(libs.plugins.easylauncher)
     alias(libs.plugins.ksp)
 }
 
 kotlin {
-    androidTarget()
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -26,35 +25,20 @@ kotlin {
         
         androidMain.dependencies {
             implementation(compose.preview)
-            implementation(libs.bundles.androidNetwork)
-            implementation(libs.bundles.androidKoin)
             implementation(libs.androidx.activity.compose)
             implementation(libs.timber)
             implementation(libs.androidx.room.sqlite.wrapper)
-        }
-
-        iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
-            implementation(libs.koin.core)
         }
 
         commonMain.dependencies {
             implementation(projects.core.designsystem)
             implementation(projects.core.coreKtx)
             implementation(projects.core.data)
+
             implementation(projects.gituser)
 
-            implementation(libs.bundles.network)
             implementation(libs.bundles.jetbrain)
-            implementation(libs.bundles.koin)
             implementation(libs.bundles.coil)
-
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
 
             // Logging
             implementation(libs.kermit)

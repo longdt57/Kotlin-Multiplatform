@@ -70,10 +70,8 @@ kotlin {
 
             implementation(libs.bundles.network)
 
-            implementation(libs.kotlin.coroutines.core)
+            implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
-            implementation(libs.koin.core)
-            implementation(libs.koin.compose.viewmodel)
             implementation(libs.androidx.lifecycle.viewmodel)
 
             implementation(compose.runtime)

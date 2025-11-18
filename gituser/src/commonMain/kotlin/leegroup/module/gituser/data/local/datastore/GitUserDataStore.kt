@@ -4,7 +4,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import leegroup.module.data.datastore.BaseKMPDataStore
 
-private const val APP_DATASTORE = "git-user-datastore"
+private const val APP_DATASTORE = "git-user-datastore.preferences_pb"
 
 internal class GitUserDataStore() : BaseKMPDataStore(APP_DATASTORE) {
 

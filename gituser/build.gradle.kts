@@ -33,9 +33,9 @@ kotlin {
                 implementation(projects.core.designsystem)
 
                 implementation(libs.bundles.jetbrain)
-                implementation(libs.bundles.datastore)
+                implementation(libs.bundles.kmp.datastore)
 
-                implementation(libs.bundles.coil)
+                implementation(libs.bundles.kmp.coil)
 
                 implementation(compose.materialIconsExtended)
             }
@@ -43,7 +43,7 @@ kotlin {
 
         commonTest {
             dependencies {
-                implementation(libs.bundles.test)
+                implementation(libs.bundles.kmp.test)
             }
         }
     }

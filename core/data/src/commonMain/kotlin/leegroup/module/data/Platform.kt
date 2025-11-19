@@ -5,12 +5,9 @@ import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
 import okio.Path
 
-interface CorePlatform {
+expect object DataPlatform {
     fun dataStorePath(name: String): Path
     fun createHttpClient(block: HttpClientConfig<*>.() -> Unit): HttpClient
 
+    inline fun <reified T : RoomDatabase> getDatabaseBuilder(name: String): RoomDatabase.Builder<T>
 }
-
-expect inline fun <reified T : RoomDatabase> getDatabaseBuilder(name: String): RoomDatabase.Builder<T>
-
-expect fun getCorePlatform(): CorePlatform

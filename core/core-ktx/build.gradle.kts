@@ -74,7 +74,7 @@ kotlin {
 
         commonTest {
             dependencies {
-                implementation(libs.bundles.test)
+                implementation(libs.bundles.kmp.test)
             }
         }
 

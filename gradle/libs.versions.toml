@@ -42,6 +42,7 @@ turbine = "1.2.1"
 room = "2.8.3"
 sqlite = "2.6.1"
 ksp = "2.2.21-2.0.4" # Should match kotlin version
+cryptographyCore = "0.5.0"
 
 [libraries]
 androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
@@ -116,20 +117,24 @@ compose-multiplatform-material3 = { group = "org.jetbrains.compose.material3", n
 compose-multiplatform-resources = { group = "org.jetbrains.compose.components", name = "components-resources", version.ref = "compose-multiplatform" }
 compose-multiplatform-ui-tooling-preview = { group = "org.jetbrains.compose.components", name = "components-ui-tooling-preview", version.ref = "compose-multiplatform" }
 
+cryptography-core = { module = "dev.whyoleg.cryptography:cryptography-core", version.ref = "cryptographyCore" }
+cryptography-provider-optimal = { module = "dev.whyoleg.cryptography:cryptography-provider-optimal", version.ref = "cryptographyCore" }
 
 [bundles]
 androidKoin = ["koin-android", "koin-androidx-compose"]
-koin = ["koin-core", "koin-compose-viewmodel"]
-coil = ["coil3-coil-compose", "coil-network-ktor3"]
-test = ["kotlin-test", "ktor-client-mock", "kotlinx-coroutines-test", "turbine"]
-network = ["ktor-client-core", "ktor-client-serialization", "ktor-client-negotiation", "ktor-client-logging"]
-room = ["androidx-room-runtime", "androidx-sqlite-bundled"]
-datastore = ["androidx-datastore", "androidx-datastore-preferences"]
 androidNetwork = ["ktor-client-android", "ktor-client-okhttp"]
+
+kmp-koin = ["koin-core", "koin-compose-viewmodel"]
+kmp-coil = ["coil3-coil-compose", "coil-network-ktor3"]
+kmp-test = ["kotlin-test", "ktor-client-mock", "kotlinx-coroutines-test", "turbine"]
+kmp-network = ["ktor-client-core", "ktor-client-serialization", "ktor-client-negotiation", "ktor-client-logging"]
+kmp-room = ["androidx-room-runtime", "androidx-sqlite-bundled"]
+kmp-datastore = ["androidx-datastore", "androidx-datastore-preferences"]
 jetbrain = ["kotlinx-serialization-json", "kotlinx-collections-immutable", "navigation-compose",
     "kotlinx-coroutines-core", "ktor-client-serialization",
     "androidx-lifecycle-viewmodel"
 ]
+kmp-crypto = ["cryptography-provider-optimal", "cryptography-core"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

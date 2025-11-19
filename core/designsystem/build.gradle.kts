@@ -68,7 +68,7 @@ kotlin {
             implementation(projects.core.coreKtx)
             implementation(projects.core.data)
 
-            implementation(libs.bundles.network)
+            implementation(libs.bundles.kmp.network)
 
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
@@ -86,7 +86,7 @@ kotlin {
 
         commonTest {
             dependencies {
-                implementation(libs.bundles.test)
+                implementation(libs.bundles.kmp.test)
             }
         }
 

@@ -13,9 +13,9 @@ import platform.Foundation.NSFileManager
 import platform.Foundation.NSURL
 import platform.Foundation.NSUserDomainMask
 
-class IOSCorePlatform : CorePlatform {
+actual object DataPlatform {
     @OptIn(ExperimentalForeignApi::class)
-    override fun dataStorePath(name: String): Path {
+    actual fun dataStorePath(name: String): Path {
         val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(
             directory = NSDocumentDirectory,
             inDomain = NSUserDomainMask,
@@ -26,16 +26,17 @@ class IOSCorePlatform : CorePlatform {
         return (requireNotNull(documentDirectory).path + "/$name").toPath()
     }
 
-    override fun createHttpClient(block: HttpClientConfig<*>.() -> Unit): HttpClient {
+    actual fun createHttpClient(block: HttpClientConfig<*>.() -> Unit): HttpClient {
         return HttpClient(Darwin, block)
     }
-}
 
-actual inline fun <reified T : RoomDatabase> getDatabaseBuilder(name: String): RoomDatabase.Builder<T> {
-    val dbFilePath = documentDirectory() + "/$name"
-    return Room.databaseBuilder<T>(
-        name = dbFilePath,
-    )
+
+    actual inline fun <reified T : RoomDatabase> getDatabaseBuilder(name: String): RoomDatabase.Builder<T> {
+        val dbFilePath = documentDirectory() + "/$name"
+        return Room.databaseBuilder<T>(
+            name = dbFilePath,
+        )
+    }
 }
 
 @OptIn(ExperimentalForeignApi::class)
@@ -49,5 +50,3 @@ fun documentDirectory(): String {
     )
     return requireNotNull(documentDirectory?.path)
 }
-
-actual fun getCorePlatform(): CorePlatform = IOSCorePlatform()

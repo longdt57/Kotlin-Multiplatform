@@ -11,7 +11,7 @@ import io.ktor.client.request.header
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import leegroup.module.core.util.JsonUtil
-import leegroup.module.data.getCorePlatform
+import leegroup.module.data.DataPlatform
 
 object KtorHttpClientProvider {
 
@@ -20,7 +20,7 @@ object KtorHttpClientProvider {
         configs: (HttpClientConfig<*>) -> Unit,
         block: DefaultRequest.DefaultRequestBuilder.() -> Unit
     ): HttpClient {
-        return getCorePlatform().createHttpClient {
+        return DataPlatform.createHttpClient {
             configs(this)
             install(ContentNegotiation) {
                 json(JsonUtil.json)

@@ -7,15 +7,15 @@ import androidx.datastore.preferences.core.edit
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import leegroup.module.core.util.JsonUtil
-import leegroup.module.data.getCorePlatform
+import leegroup.module.data.DataPlatform
 
-abstract class BaseKMPDataStore(
+abstract class BaseDataStore(
     prefName: String,
 ) {
 
     protected open val dataStore: DataStore<Preferences> =
         PreferenceDataStoreFactory.createWithPath(
-            produceFile = { getCorePlatform().dataStorePath(prefName) }
+            produceFile = { DataPlatform.dataStorePath("$prefName.preferences_pb") }
         )
 
     protected fun <T> getValue(key: Preferences.Key<T>): Flow<T?> {

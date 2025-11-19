@@ -2,11 +2,11 @@ package leegroup.module.gituser.data.local.datastore
 
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import kotlinx.coroutines.flow.Flow
-import leegroup.module.data.datastore.BaseKMPDataStore
+import leegroup.module.data.datastore.BaseDataStore
 
 private const val APP_DATASTORE = "git-user-datastore.preferences_pb"
 
-internal class GitUserDataStore() : BaseKMPDataStore(APP_DATASTORE) {
+internal class GitUserDataStore() : BaseDataStore(APP_DATASTORE) {
 
     fun getAppPreference(): Flow<Boolean?> {
         return getValue(APP_PREFERENCE)

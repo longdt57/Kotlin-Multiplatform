@@ -38,7 +38,7 @@ kotlin {
             implementation(projects.gituser)
 
             implementation(libs.bundles.jetbrain)
-            implementation(libs.bundles.coil)
+            implementation(libs.bundles.kmp.coil)
 
             // Logging
             implementation(libs.kermit)

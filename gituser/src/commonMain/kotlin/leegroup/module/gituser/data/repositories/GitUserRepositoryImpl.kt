@@ -1,9 +1,7 @@
 package leegroup.module.gituser.data.repositories
 
-import leegroup.module.data.getRoomDatabase
 import leegroup.module.gituser.data.extensions.transform
 import leegroup.module.gituser.data.local.room.GitUserDao
-import leegroup.module.gituser.data.local.room.GitUserDatabase
 import leegroup.module.gituser.data.models.GitUser
 import leegroup.module.gituser.data.models.mapToDomain
 import leegroup.module.gituser.data.remote.GitUserApiService

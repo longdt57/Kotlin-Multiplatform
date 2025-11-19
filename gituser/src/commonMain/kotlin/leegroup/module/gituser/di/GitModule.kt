@@ -4,8 +4,8 @@ import io.ktor.client.HttpClient
 import leegroup.module.core.util.AppConfigurationProvider
 import leegroup.module.core.util.DispatchersProvider
 import leegroup.module.core.util.DispatchersProviderImpl
+import leegroup.module.data.DatabaseFactory
 import leegroup.module.data.di.KtorHttpClientProvider
-import leegroup.module.data.getRoomDatabase
 import leegroup.module.gituser.data.local.datastore.GitUserDataStore
 import leegroup.module.gituser.data.local.room.GitUserDao
 import leegroup.module.gituser.data.local.room.GitUserDatabase
@@ -37,7 +37,7 @@ val gitModule: Module = module {
     single<HttpClient>(named(GIT_USER_KTOR_HTTP_CLIENT)) { provideGitUserKtorHttpClient(get()) }
 
     single<GitUserDataStore> { GitUserDataStore() }
-    single<GitUserDatabase> { getRoomDatabase<GitUserDatabase>("git_room.db") }
+    single<GitUserDatabase> { DatabaseFactory.createRoomDatabase<GitUserDatabase>("git_room.db") }
     factory<GitUserDao> { get<GitUserDatabase>().gitUserDao() }
     factory<GitUserDetailDao> { get<GitUserDatabase>().gitUserDetailDao() }
 

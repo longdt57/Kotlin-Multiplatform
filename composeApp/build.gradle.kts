@@ -1,28 +1,59 @@
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+import leegroup.module.buildlogic.configureIosFramework
+import org.jetbrains.kotlin.gradle.plugin.cocoapods.KotlinCocoapodsPlugin
+
 plugins {
     alias(libs.plugins.nowinandroid.kmp.application)
     alias(libs.plugins.nowinandroid.kmp.application.compose)
     alias(libs.plugins.nowinandroid.kmp.koin)
     alias(libs.plugins.nowinandroid.kmp.network)
     alias(libs.plugins.kotlinSerialization)
-//    alias(libs.plugins.easylauncher)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinCocoapods)
+    alias(libs.plugins.buildkonfig)
+}
+
+// ----- iOS: read Xcode configuration (Debug/UAT/Staging/Release) -----
+val iosAppConfig =
+    (project.findProperty(KotlinCocoapodsPlugin.CONFIGURATION_PROPERTY) as? String) ?: "Staging"
+
+// ---------- Android: map task/variant names to clean build type ----------
+val androidTasks = project.gradle.startParameter.taskNames
+    .joinToString(" ")
+    .lowercase()
+
+val androidAppConfig: String = when {
+    "uat" in androidTasks -> "Uat"
+    "staging" in androidTasks -> "Staging"
+    "release" in androidTasks -> "Release"
+    else -> "Debug"
+}
+
+buildkonfig {
+    packageName = "leegroup.app.kmm.gituser"
+
+    defaultConfigs {
+        // default for non-android/non-ios tasks
+        buildConfigField(STRING, "BUILD_TYPE", "DEBUG")
+    }
+
+    targetConfigs {
+        create("android") {
+            buildConfigField(STRING, "BUILD_TYPE", androidAppConfig)
+        }
+        // ✅ match real iOS target names
+        listOf("iosArm64", "iosX64", "iosSimulatorArm64").forEach {
+            create(it) {
+                buildConfigField(STRING, "BUILD_TYPE", iosAppConfig)
+            }
+        }
+    }
 }
 
 kotlin {
+    configureIosFramework("ComposeApp")
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "ComposeApp"
-            isStatic = true
-        }
-    }
-    
     sourceSets {
-        
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)

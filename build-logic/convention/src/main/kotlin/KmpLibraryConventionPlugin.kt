@@ -19,7 +19,7 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
             val androidExtension = extensions.getByType<LibraryExtension>()
             androidExtension.buildTypes {
                 create("uat")
-                create("stg")
+                create("staging")
             }
 
             extensions.configure<LibraryExtension> {

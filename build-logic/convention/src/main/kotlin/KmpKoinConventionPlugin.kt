@@ -21,7 +21,7 @@ class KmpKoinConventionPlugin : Plugin<Project> {
                 implementation(libs.findLibrary("koin-core").get())
                 implementation(libs.findLibrary("koin-compose-viewmodel").get())
             }
-            kotlin.sourceSets.create("iosMain").dependencies {
+            kotlin.sourceSets.maybeCreate("iosMain").dependencies {
                 implementation(libs.findLibrary("koin-core").get())
             }
         }

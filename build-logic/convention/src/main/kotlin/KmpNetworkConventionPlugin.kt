@@ -22,7 +22,7 @@ class KmpNetworkConventionPlugin : Plugin<Project> {
                 implementation(libs.findLibrary("ktor-client-negotiation").get())
                 implementation(libs.findLibrary("ktor-client-logging").get())
             }
-            kotlin.sourceSets.getByName("iosMain").dependencies {
+            kotlin.sourceSets.maybeCreate("iosMain").dependencies {
                 implementation(libs.findLibrary("ktor-client-darwin").get())
             }
         }

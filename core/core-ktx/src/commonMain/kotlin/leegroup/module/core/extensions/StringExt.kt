@@ -1,7 +1,5 @@
 package leegroup.module.core.extensions
 
-import androidx.compose.ui.graphics.Color
-
 fun String.formattedUrl(): String {
     return if (this.startsWith("http://") || this.startsWith("https://")) {
         this

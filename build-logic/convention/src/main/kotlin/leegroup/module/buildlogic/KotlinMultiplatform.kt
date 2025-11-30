@@ -12,13 +12,19 @@ internal fun Project.configureKotlinMultiplatform(
     kotlin.iosArm64()
     kotlin.iosSimulatorArm64()
 
-    kotlin.sourceSets.getByName("androidMain").dependencies {
-    }
+    kotlin.sourceSets.getByName("androidMain").dependencies {}
 
     kotlin.sourceSets.getByName("commonMain").dependencies {
         implementation(libs.findLibrary("kotlinx-coroutines-core").get())
         implementation(libs.findLibrary("kotlinx-serialization-json").get())
         implementation(libs.findLibrary("kotlinx-datetime").get())
         implementation(libs.findLibrary("kotlin-stdlib").get())
+    }
+
+    kotlin.sourceSets.getByName("commonTest").dependencies {
+        implementation(libs.findLibrary("kotlin-test").get())
+        implementation(libs.findLibrary("ktor-client-mock").get())
+        implementation(libs.findLibrary("kotlinx-coroutines-test").get())
+        implementation(libs.findLibrary("turbine").get())
     }
 }

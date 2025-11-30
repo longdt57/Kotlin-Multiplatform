@@ -11,4 +11,6 @@ plugins {
     alias(libs.plugins.androidLint) apply false
     alias(libs.plugins.androidx.room) apply false
     alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.kotlinCocoapods) apply false
+    alias(libs.plugins.buildkonfig) apply false
 }

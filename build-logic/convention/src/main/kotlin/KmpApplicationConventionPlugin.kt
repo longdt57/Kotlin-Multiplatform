@@ -22,7 +22,7 @@ class KmpApplicationConventionPlugin : Plugin<Project> {
             val androidExtension = extensions.getByType<ApplicationExtension>()
             androidExtension.buildTypes {
                 create("uat")
-                create("stg")
+                create("staging")
             }
 
             extensions.configure<ApplicationExtension> {

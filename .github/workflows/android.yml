@@ -40,8 +40,8 @@ jobs:
         run: chmod +x gradlew
 
       # Run detekt
-#      - name: Run Detekt
-#        run: ./gradlew detekt
+      - name: Run Lint
+        run: ./gradlew lint
 
       # Run assembleUat
 #      - name: Run AssembleUat

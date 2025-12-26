@@ -1,7 +1,9 @@
-package leegroup.module.designsystem.components
+package leegroup.module.designsystem.ui.components
 
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import leegroup.module.designsystem.components.AlertDialogView
+import leegroup.module.designsystem.theme.ComposeTheme
 import leegroup.module.designsystem.ui.models.ErrorModel
 import leegroup.module.designsystem.ui.models.ErrorState
 import org.jetbrains.compose.resources.painterResource
@@ -44,7 +46,7 @@ fun ErrorView(
 @Preview
 @Composable
 private fun CommonErrorViewPreview() {
-    leegroup.module.designsystem.theme.ComposeTheme {
+    ComposeTheme {
         ErrorView(ErrorState.Common)
     }
 }
@@ -52,7 +54,7 @@ private fun CommonErrorViewPreview() {
 @Preview
 @Composable
 private fun NetworkErrorViewPreview() {
-    leegroup.module.designsystem.theme.ComposeTheme {
+    ComposeTheme {
         ErrorView(ErrorState.Network)
     }
 }
@@ -60,7 +62,7 @@ private fun NetworkErrorViewPreview() {
 @Preview
 @Composable
 private fun ServerErrorViewPreview() {
-    leegroup.module.designsystem.theme.ComposeTheme {
+    ComposeTheme {
         ErrorView(ErrorState.Server)
     }
 }
@@ -68,7 +70,7 @@ private fun ServerErrorViewPreview() {
 @Preview
 @Composable
 private fun ApiErrorViewPreview() {
-    leegroup.module.designsystem.theme.ComposeTheme {
+    ComposeTheme {
         ErrorView(ErrorState.Api())
     }
 }
@@ -76,7 +78,7 @@ private fun ApiErrorViewPreview() {
 @Preview
 @Composable
 private fun CustomApiErrorViewPreview() {
-    leegroup.module.designsystem.theme.ComposeTheme {
+    ComposeTheme {
         ErrorView(
             ErrorState.Api(
                 error = ErrorModel(

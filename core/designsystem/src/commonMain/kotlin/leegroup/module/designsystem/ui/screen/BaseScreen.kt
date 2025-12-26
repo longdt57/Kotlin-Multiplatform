@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.components
+package leegroup.module.designsystem.ui.screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -7,6 +7,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import leegroup.module.core.extensions.compose.collectAsEffect
+import leegroup.module.designsystem.ui.components.ErrorView
+import leegroup.module.designsystem.ui.components.LoadingView
 import leegroup.module.designsystem.ui.models.LocalTopSnackbarHostStateManager
 import leegroup.module.designsystem.ui.models.Message
 import leegroup.module.designsystem.ui.viewmodel.BaseViewModel

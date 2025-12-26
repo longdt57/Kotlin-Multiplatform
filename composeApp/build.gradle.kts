@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.buildkonfig)
+    alias(libs.plugins.kotlinx.kover)
 }
 
 // ----- iOS: read Xcode configuration (Debug/UAT/Staging/Release) -----
@@ -112,4 +113,43 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+}
+
+dependencies {
+    kover(projects.core.coreKtx)
+    kover(projects.core.data)
+    kover(projects.core.designsystem)
+    kover(projects.gituser)
+}
+
+kover {
+    reports {
+        filters {
+            includes {
+                classes("*ViewModel")
+                classes("*UseCase")
+                classes("*UseCase")
+                classes("*Mapper")
+                classes("*MapperImpl")
+                classes("*Mapping")
+                classes("*Repository")
+                classes("*RepositoryImpl")
+                classes("*Util")
+                classes("*Helper")
+                classes("*HelperImpl")
+                classes("*Formatter")
+                classes("*FormatterImpl")
+                classes("*Converter")
+                classes("*ConverterImpl")
+                classes("*UiState")
+                classes("*Event")
+                classes("*Builder")
+                classes("*Controller")
+                classes("*Data")
+                classes("*Analytic")
+                classes("*Analytics")
+                classes("*AnalyticManager")
+            }
+        }
+    }
 }

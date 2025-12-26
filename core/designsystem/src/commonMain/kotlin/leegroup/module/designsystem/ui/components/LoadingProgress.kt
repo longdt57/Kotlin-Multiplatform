@@ -1,0 +1,38 @@
+package leegroup.module.designsystem.ui.components
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import gituserkmm.core.designsystem.generated.resources.loading
+import leegroup.module.designsystem.theme.ComposeTheme
+import leegroup.module.designsystem.ui.models.LoadingState
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import gituserkmm.core.designsystem.generated.resources.Res as R
+
+@Composable
+fun LoadingProgress(loading: LoadingState.Loading) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            CircularProgressIndicator()
+            // TODO fix crash
+//            stringResourceOrNull(loading.messageRes)?.let { text ->
+//                Text(modifier = Modifier.padding(8.dp), text = text)
+//            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun LoadingProgressPreview() {
+    ComposeTheme {
+        LoadingProgress(loading = LoadingState.Loading(messageRes = R.string.loading))
+    }
+}

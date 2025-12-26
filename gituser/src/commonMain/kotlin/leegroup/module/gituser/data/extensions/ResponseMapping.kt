@@ -8,20 +8,13 @@ import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
 import kotlinx.io.IOException
 import kotlinx.serialization.SerializationException
+import leegroup.module.core.util.JsonUtil
 import leegroup.module.gituser.data.remote.responses.ErrorResponse
 import leegroup.module.gituser.data.remote.responses.mapToError
-import leegroup.module.gituser.data.util.JsonUtil
 import leegroup.module.gituser.domain.exceptions.ApiException
 import leegroup.module.gituser.domain.exceptions.NoConnectivityException
 import leegroup.module.gituser.domain.exceptions.ServerException
 import kotlin.experimental.ExperimentalTypeInference
-
-@OptIn(ExperimentalTypeInference::class)
-internal fun <T> flowTransform(@BuilderInference block: suspend FlowCollector<T>.() -> T) = flow {
-    runCatching { block() }
-        .onSuccess { result -> emit(result) }
-        .onFailure { exception -> throw exception.mapError() }
-}
 
 internal suspend fun <T> transform(block: suspend () -> T): T {
     return runCatching {

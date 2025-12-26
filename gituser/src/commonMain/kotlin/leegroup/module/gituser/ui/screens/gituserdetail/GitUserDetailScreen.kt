@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import leegroup.module.core.extensions.compose.collectAsEffect
-import leegroup.module.designsystem.components.BaseScreen
+import leegroup.module.designsystem.ui.screen.BaseScreen
 import leegroup.module.designsystem.theme.ComposeTheme
 import leegroup.module.gituser.ui.models.GitUserDetailUiModel
 import leegroup.module.gituser.ui.screens.gituserdetail.components.GitUserDetailAppBar

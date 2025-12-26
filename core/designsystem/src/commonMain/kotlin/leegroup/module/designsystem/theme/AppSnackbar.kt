@@ -15,12 +15,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import gituserkmm.core.designsystem.generated.resources.Res
-import gituserkmm.core.designsystem.generated.resources.ic_check_green_18dp
-import gituserkmm.core.designsystem.generated.resources.ic_error_red_18dp
-import gituserkmm.core.designsystem.generated.resources.ic_warning_yellow_18dp
+import leegroup.module.designsystem.icon.CheckGreen18Dp
+import leegroup.module.designsystem.icon.DesignSystemIcons
+import leegroup.module.designsystem.icon.ErrorRed18Dp
+import leegroup.module.designsystem.icon.WarningYellow18Dp
 import leegroup.module.designsystem.ui.models.SnackbarType
-import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun AppSnackBar(
@@ -44,7 +43,7 @@ fun AppSnackBar(
                         Image(
                             modifier = Modifier
                                 .padding(end = 8.dp),
-                            painter = painterResource(snackbarType.icon()),
+                            imageVector = snackbarType.icon(),
                             contentDescription = null,
                         )
                         Text(
@@ -75,7 +74,7 @@ fun SnackbarType.contentColor() = when (this) {
 
 @Composable
 fun SnackbarType.icon() = when (this) {
-    SnackbarType.Success -> Res.drawable.ic_check_green_18dp
-    SnackbarType.Warning -> Res.drawable.ic_warning_yellow_18dp
-    SnackbarType.Error -> Res.drawable.ic_error_red_18dp
+    SnackbarType.Success -> DesignSystemIcons.CheckGreen18Dp
+    SnackbarType.Warning -> DesignSystemIcons.WarningYellow18Dp
+    SnackbarType.Error -> DesignSystemIcons.ErrorRed18Dp
 }

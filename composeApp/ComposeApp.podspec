@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'ComposeApp'
     spec.version                  = '1.0'
-    spec.homepage                 = 'https://abc.com'
+    spec.homepage                 = 'https://github.com/longdt57/Kotlin-Multiplatform'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''

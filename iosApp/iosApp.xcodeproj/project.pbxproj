@@ -246,7 +246,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nset -euo pipefail\n\n# SRCROOT = iosApp folder\nREPO_ROOT=\"$SRCROOT/..\"\nGRADLEW=\"$REPO_ROOT/gradlew\"\n\necho \"REPO_ROOT=$REPO_ROOT\"\necho \"GRADLEW=$GRADLEW\"\n\n# Make sure gradlew exists and is executable\nif [ ! -f \"$GRADLEW\" ]; then\n  echo \"gradlew not found at $GRADLEW\"\n  exit 1\nfi\nchmod +x \"$GRADLEW\"\n\ncd \"$REPO_ROOT\"\n# ./gradlew podInstall\n\n./gradlew -p \"$SRCROOT/..\" \\\n  -Pkotlin.native.cocoapods.platform=\"$PLATFORM_NAME\" \\\n  -Pkotlin.native.cocoapods.archs=\"$ARCHS\" \\\n  -Pkotlin.native.cocoapods.configuration=\"$CONFIGURATION\"\n";
+			shellScript = "#!/bin/sh\nset -euo pipefail\n\n# SRCROOT = iosApp folder\nREPO_ROOT=\"$SRCROOT/..\"\nGRADLEW=\"$REPO_ROOT/gradlew\"\n\necho \"REPO_ROOT=$REPO_ROOT\"\necho \"GRADLEW=$GRADLEW\"\n\n# Make sure gradlew exists and is executable\nif [ ! -f \"$GRADLEW\" ]; then\n  echo \"gradlew not found at $GRADLEW\"\n  exit 1\nfi\nchmod +x \"$GRADLEW\"\n\ncd \"$REPO_ROOT\"\n ./gradlew podInstall\n\n./gradlew -p \"$SRCROOT/..\" \\\n  -Pkotlin.native.cocoapods.platform=\"$PLATFORM_NAME\" \\\n  -Pkotlin.native.cocoapods.archs=\"$ARCHS\" \\\n  -Pkotlin.native.cocoapods.configuration=\"$CONFIGURATION\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

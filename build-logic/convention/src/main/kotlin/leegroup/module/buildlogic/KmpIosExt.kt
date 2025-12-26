@@ -14,7 +14,7 @@ import kotlin.collections.set
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 fun Project.configureIosFramework(
     baseName: String,
-    isStatic: Boolean = false,
+    isStatic: Boolean = true,
     transitiveExport: Boolean = true,
     frameworkConfig: Framework.() -> Unit = {},
     cocoapodsConfigure: CocoapodsExtension.() -> Unit = {}
@@ -33,7 +33,7 @@ fun Project.configureIosFramework(
     }
     kmp.extensions.getByType<CocoapodsExtension>().apply {
         this.name = baseName
-        this.homepage = "https://abc.com"
+        this.homepage = "https://github.com/longdt57/Kotlin-Multiplatform"
         this.summary = "Kmp $baseName"
         this.version = "1.0"
         this.ios.deploymentTarget = "13.0"

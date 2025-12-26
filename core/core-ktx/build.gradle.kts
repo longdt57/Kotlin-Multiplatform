@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.nowinandroid.kmp.library)
     alias(libs.plugins.nowinandroid.kmp.library.compose)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.kotlinx.kover)
 }
 
 kotlin {

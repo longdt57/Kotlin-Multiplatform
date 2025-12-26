@@ -22,7 +22,6 @@ fun Project.configureIosFramework(
     val kmp = extensions.getByType<KotlinMultiplatformExtension>()
     kmp.apply {
         listOf(
-            iosX64(),
             iosArm64(),
             iosSimulatorArm64()
         ).forEach { iosTarget ->

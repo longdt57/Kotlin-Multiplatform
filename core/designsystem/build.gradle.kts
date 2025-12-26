@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.nowinandroid.kmp.library.compose)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinx.kover)
 }
 
 kotlin {
@@ -35,6 +36,7 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(libs.bundles.kmp.test)
+                implementation(projects.core.test)
             }
         }
 
@@ -57,6 +59,13 @@ kotlin {
         }
     }
 
+}
+
+dependencies {
+
+
+    testImplementation(libs.bundles.test)
+    testImplementation(projects.core.test)
 }
 
 compose.resources {

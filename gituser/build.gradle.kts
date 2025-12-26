@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.nowinandroid.kmp.network)
     alias(libs.plugins.nowinandroid.kmp.room)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.kotlinx.kover)
 }
 
 
@@ -28,6 +29,7 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(libs.bundles.kmp.test)
+                implementation(projects.core.test)
             }
         }
     }
@@ -35,6 +37,13 @@ kotlin {
 
 android {
     namespace = "leegroup.module.gituser"
+
+    @Suppress("UnstableApiUsage")
+    testOptions {
+        unitTests {
+            isReturnDefaultValues = true
+        }
+    }
 }
 
 room {

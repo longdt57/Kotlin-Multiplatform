@@ -1,0 +1,66 @@
+name: Android CI
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+      - 'release/*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  MIN_COVERAGE_ALL: ${{ vars.MIN_COVERAGE_ALL || 60 }}
+  MIN_COVERAGE_CHANGED_FILE: ${{ vars.MIN_COVERAGE_CHANGED_FILE || 60 }}
+
+jobs:
+  android-ci:
+    name: Lint & Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      # Run detekt
+#      - name: Run Detekt
+#        run: ./gradlew detekt
+
+      # Run assembleUat
+#      - name: Run AssembleUat
+#        run: ./gradlew assembleDebug
+#
+      # Kover ONLY on PRs
+      - name: Run Kover Coverage
+        if: github.event_name == 'pull_request'
+        run: ./gradlew composeApp:koverXmlReportDebug
+
+      # Post Coverage Comment only for PRs
+      - name: Post Coverage Comment
+        if: github.event_name == 'pull_request'
+        uses: mi-kas/kover-report@v1
+        with:
+          path: composeApp/build/reports/kover/reportDebug.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Code Coverage
+          update-comment: true
+          min-coverage-overall: ${{ env.MIN_COVERAGE_ALL }}
+          min-coverage-changed-files: ${{ env.MIN_COVERAGE_CHANGED_FILE }}
+          coverage-counter-type: LINE

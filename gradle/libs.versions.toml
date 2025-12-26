@@ -24,6 +24,7 @@ koinCore = "4.1.1"
 kotline-coroutines-core = "1.10.2"
 junit = "4.13.2"
 kotlin = "2.2.21"
+kover = "0.9.3"
 kotlinxCollectionsImmutable = "0.4.0"
 kotlinxDatetime = "0.7.1"
 ktorClient = "3.3.3"
@@ -38,6 +39,8 @@ runner = "1.7.0"
 core = "1.7.0"
 kotlinxSerializationJson = "1.9.0"
 turbine = "1.2.1"
+kotestAssertionsCore = "6.0.3"
+mockk = "1.14.5"
 room = "2.8.4"
 sqlite = "2.6.1"
 ksp = "2.2.21-2.0.4" # Should match kotlin version
@@ -95,6 +98,8 @@ kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", versio
 androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
 androidx-core = { group = "androidx.test", name = "core", version.ref = "core" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotestAssertionsCore" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 
 androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
@@ -121,6 +126,7 @@ cryptography-core = { module = "dev.whyoleg.cryptography:cryptography-core", ver
 cryptography-provider-optimal = { module = "dev.whyoleg.cryptography:cryptography-provider-optimal", version.ref = "cryptographyCore" }
 
 [bundles]
+test = ["junit", "androidx-core", "turbine", "kotest-assertions-core", "mockk", "kotlinx-coroutines-test", "ktor-client-mock"]
 androidKoin = ["koin-android", "koin-androidx-compose"]
 androidNetwork = ["ktor-client-android", "ktor-client-okhttp"]
 
@@ -145,6 +151,7 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 androidKotlinMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 androidLint = { id = "com.android.lint", version.ref = "agp" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 easylauncher = { id = "com.starter.easylauncher", version.ref = "easyLauncher" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

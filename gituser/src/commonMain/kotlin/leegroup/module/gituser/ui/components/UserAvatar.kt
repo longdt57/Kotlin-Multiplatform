@@ -10,9 +10,9 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import leegroup.module.designsystem.icon.DesignSystemIcons
-import leegroup.module.designsystem.icon.ImAvatarPlaceholder
 import leegroup.module.designsystem.theme.ComposeTheme
+import leegroup.module.gituser.icon.GitUserIcons
+import leegroup.module.gituser.icon.ImAvatarPlaceholder
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -23,7 +23,7 @@ internal fun UserAvatar(modifier: Modifier = Modifier, avatarUrl: String?) {
             .clip(CircleShape),
         model = avatarUrl,
 
-        error = rememberVectorPainter(DesignSystemIcons.ImAvatarPlaceholder),
+        error = rememberVectorPainter(GitUserIcons.ImAvatarPlaceholder),
         contentDescription = null,
         contentScale = ContentScale.Crop,
     )

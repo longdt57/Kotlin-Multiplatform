@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.icon
+package leegroup.module.gituser.icon
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
-val DesignSystemIcons.ImAvatarPlaceholder: ImageVector
+val GitUserIcons.ImAvatarPlaceholder: ImageVector
     get() {
         if (_ImAvatarPlaceholder != null) {
             return _ImAvatarPlaceholder!!

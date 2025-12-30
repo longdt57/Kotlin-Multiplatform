@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "93eee73849a15bbd330333376d0c5756",
+    "identityHash": "a634adfeb693b530818a49a6a1445e2e",
     "entities": [
       {
         "tableName": "GitUser",
@@ -39,7 +39,7 @@
         }
       },
       {
-        "tableName": "GitUserDetail",
+        "tableName": "GitUserDetailEntity",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `login` TEXT, `name` TEXT, `avatar_url` TEXT, `blog` TEXT, `location` TEXT, `followers` INTEGER, `following` INTEGER, PRIMARY KEY(`id`))",
         "fields": [
           {
@@ -94,7 +94,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '93eee73849a15bbd330333376d0c5756')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a634adfeb693b530818a49a6a1445e2e')"
     ]
   }
 }

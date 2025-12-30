@@ -1,7 +1,7 @@
 package leegroup.module.gituser.data.remote
 
 import leegroup.module.gituser.data.models.GitUser
-import leegroup.module.gituser.data.models.GitUserDetail
+import leegroup.module.gituser.data.models.GitUserDetailEntity
 
 internal interface GitUserApiService {
 
@@ -12,5 +12,5 @@ internal interface GitUserApiService {
 
     suspend fun getGitUserDetail(
         login: String,
-    ): GitUserDetail
+    ): GitUserDetailEntity
 }

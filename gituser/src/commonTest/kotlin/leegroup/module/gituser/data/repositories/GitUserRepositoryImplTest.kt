@@ -110,7 +110,7 @@ private class MockGitUserListApiService : GitUserApiService {
         return users
     }
 
-    override suspend fun getGitUserDetail(login: String): leegroup.module.gituser.data.models.GitUserDetail {
+    override suspend fun getGitUserDetail(login: String): leegroup.module.gituser.data.models.GitUserDetailEntity {
         throw NotImplementedError()
     }
 }

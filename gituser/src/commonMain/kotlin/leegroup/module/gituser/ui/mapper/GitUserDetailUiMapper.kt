@@ -21,6 +21,7 @@ internal class GitUserDetailUiMapperImpl : GitUserDetailUiMapper {
         model: GitUserDetailModel
     ): GitUserDetailUiModel {
         return oldUiModel.copy(
+            login = model.login,
             name = model.name ?: model.login,
             avatarUrl = model.avatarUrl.orEmpty(),
             blog = model.blog.orEmpty(),

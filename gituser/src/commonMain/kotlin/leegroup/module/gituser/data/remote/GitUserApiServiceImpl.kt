@@ -4,7 +4,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import leegroup.module.gituser.data.models.GitUser
-import leegroup.module.gituser.data.models.GitUserDetail
+import leegroup.module.gituser.data.models.GitUserDetailEntity
 
 internal class GitUserApiServiceImpl(
     private val httpClient: HttpClient
@@ -21,7 +21,7 @@ internal class GitUserApiServiceImpl(
         }.body()
     }
 
-    override suspend fun getGitUserDetail(login: String): GitUserDetail {
+    override suspend fun getGitUserDetail(login: String): GitUserDetailEntity {
         return httpClient.get(GET_USER_DETAIL + login).body()
     }
 

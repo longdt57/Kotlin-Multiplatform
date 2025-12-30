@@ -1,7 +1,7 @@
 package leegroup.module.gituser.data.repositories
 
 import leegroup.module.gituser.data.local.room.GitUserDetailDao
-import leegroup.module.gituser.data.models.GitUserDetail
+import leegroup.module.gituser.data.models.GitUserDetailEntity
 import leegroup.module.gituser.data.models.mapToDomain
 import leegroup.module.gituser.data.remote.GitUserApiService
 import leegroup.module.gituser.domain.models.GitUserDetailModel
@@ -23,9 +23,9 @@ internal class GitUserDetailRepositoryImpl(
         return userDao.getUserDetail(login)?.let { mapToDomain(it) }
     }
 
-    private suspend fun saveToLocal(user: GitUserDetail) {
+    private suspend fun saveToLocal(user: GitUserDetailEntity) {
         userDao.upsert(user)
     }
 
-    private fun mapToDomain(user: GitUserDetail) = user.mapToDomain()
+    private fun mapToDomain(user: GitUserDetailEntity) = user.mapToDomain()
 }

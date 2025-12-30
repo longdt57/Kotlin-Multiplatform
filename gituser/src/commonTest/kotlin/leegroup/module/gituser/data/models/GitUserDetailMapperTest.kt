@@ -8,7 +8,7 @@ class GitUserDetailMapperTest {
     @Test
     fun `test GitUserDetail mapToDomain maps all fields correctly`() {
         // Given
-        val gitUserDetail = GitUserDetail(
+        val gitUserDetail = GitUserDetailEntity(
             id = 12345L,
             login = "testuser",
             name = "Test User",
@@ -36,7 +36,7 @@ class GitUserDetailMapperTest {
     @Test
     fun `test GitUserDetail mapToDomain with null login defaults to empty string`() {
         // Given
-        val gitUserDetail = GitUserDetail(
+        val gitUserDetail = GitUserDetailEntity(
             id = 12345L,
             login = null,
             name = "Test User",
@@ -57,7 +57,7 @@ class GitUserDetailMapperTest {
     @Test
     fun `test GitUserDetail mapToDomain with null name`() {
         // Given
-        val gitUserDetail = GitUserDetail(
+        val gitUserDetail = GitUserDetailEntity(
             id = 12345L,
             login = "testuser",
             name = null,
@@ -78,7 +78,7 @@ class GitUserDetailMapperTest {
     @Test
     fun `test GitUserDetail mapToDomain with null followers defaults to 0`() {
         // Given
-        val gitUserDetail = GitUserDetail(
+        val gitUserDetail = GitUserDetailEntity(
             id = 12345L,
             login = "testuser",
             name = "Test User",
@@ -99,7 +99,7 @@ class GitUserDetailMapperTest {
     @Test
     fun `test GitUserDetail mapToDomain with null following defaults to 0`() {
         // Given
-        val gitUserDetail = GitUserDetail(
+        val gitUserDetail = GitUserDetailEntity(
             id = 12345L,
             login = "testuser",
             name = "Test User",
@@ -120,7 +120,7 @@ class GitUserDetailMapperTest {
     @Test
     fun `test GitUserDetail mapToDomain with all nullable fields null`() {
         // Given
-        val gitUserDetail = GitUserDetail(
+        val gitUserDetail = GitUserDetailEntity(
             id = 12345L,
             login = null,
             name = null,

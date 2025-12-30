@@ -10,7 +10,7 @@ import leegroup.module.gituser.domain.models.GitUserDetailModel
 
 @Entity
 @Serializable
-internal data class GitUserDetail(
+internal data class GitUserDetailEntity(
     @SerialName("id")
     @PrimaryKey
     val id: Long,
@@ -45,7 +45,7 @@ internal data class GitUserDetail(
 )
 
 
-internal fun GitUserDetail.mapToDomain() = GitUserDetailModel(
+internal fun GitUserDetailEntity.mapToDomain() = GitUserDetailModel(
     id = id,
     login = login.orEmpty(),
     name = name,

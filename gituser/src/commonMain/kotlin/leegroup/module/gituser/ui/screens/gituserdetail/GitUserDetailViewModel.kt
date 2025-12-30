@@ -17,7 +17,7 @@ import leegroup.module.gituser.ui.mapper.GitUserDetailUiMapper
 import leegroup.module.gituser.ui.models.GitUserDetailUiModel
 import leegroup.module.gituser.ui.navigation.GitUserDestination
 
-internal class GitUserDetailViewModel constructor(
+class GitUserDetailViewModel internal constructor(
     private val savedStateHandle: SavedStateHandle,
     private val dispatchersProvider: DispatchersProvider,
     private val getGitUserDetailLocalUseCase: GetGitUserDetailLocalUseCase,

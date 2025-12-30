@@ -3,7 +3,7 @@ package leegroup.module.gituser.data.repositories
 import kotlinx.coroutines.test.runTest
 import leegroup.module.gituser.data.local.room.GitUserDetailDao
 import leegroup.module.gituser.data.models.GitUser
-import leegroup.module.gituser.data.models.GitUserDetail
+import leegroup.module.gituser.data.models.GitUserDetailEntity
 import leegroup.module.gituser.data.remote.GitUserApiService
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -28,7 +28,7 @@ class GitUserDetailRepositoryImplTest {
     fun `test getRemote fetches from API and saves to local`() = runTest {
         // Given
         val login = "testuser"
-        val apiUserDetail = GitUserDetail(
+        val apiUserDetail = GitUserDetailEntity(
             id = 1L,
             login = login,
             name = "Test User",
@@ -57,7 +57,7 @@ class GitUserDetailRepositoryImplTest {
     fun `test getLocal retrieves from DAO`() = runTest {
         // Given
         val login = "localuser"
-        val localUserDetail = GitUserDetail(
+        val localUserDetail = GitUserDetailEntity(
             id = 2L,
             login = login,
             name = "Local User",
@@ -98,7 +98,7 @@ class GitUserDetailRepositoryImplTest {
     fun `test getRemote maps data correctly`() = runTest {
         // Given
         val login = "mapper"
-        val apiUserDetail = GitUserDetail(
+        val apiUserDetail = GitUserDetailEntity(
             id = 3L,
             login = login,
             name = null,
@@ -123,47 +123,47 @@ class GitUserDetailRepositoryImplTest {
 }
 
 private class MockGitUserDetailApiService : GitUserApiService {
-    var userDetail: GitUserDetail? = null
+    var userDetail: GitUserDetailEntity? = null
     var lastLogin: String = ""
 
     override suspend fun getGitUser(since: Long, perPage: Int): List<GitUser> {
         throw NotImplementedError()
     }
 
-    override suspend fun getGitUserDetail(login: String): GitUserDetail {
+    override suspend fun getGitUserDetail(login: String): GitUserDetailEntity {
         lastLogin = login
         return userDetail ?: throw IllegalStateException("No user detail set")
     }
 }
 
 private class MockGitUserDetailDao : GitUserDetailDao {
-    var userDetail: GitUserDetail? = null
+    var userDetail: GitUserDetailEntity? = null
     var lastLogin: String = ""
     var upsertCalled: Boolean = false
-    var lastUpsertedUser: GitUserDetail? = null
+    var lastUpsertedUser: GitUserDetailEntity? = null
 
-    override suspend fun getUserDetail(login: String): GitUserDetail? {
+    override suspend fun getUserDetail(login: String): GitUserDetailEntity? {
         lastLogin = login
         return userDetail
     }
 
-    override suspend fun upsert(entity: GitUserDetail): Long {
+    override suspend fun upsert(entity: GitUserDetailEntity): Long {
         upsertCalled = true
         lastUpsertedUser = entity
         return entity.id
     }
 
-    override suspend fun upsert(vararg entity: GitUserDetail) {
+    override suspend fun upsert(vararg entity: GitUserDetailEntity) {
         upsertCalled = true
         lastUpsertedUser = entity.firstOrNull()
     }
 
-    override suspend fun upsert(entities: Collection<GitUserDetail>) {
+    override suspend fun upsert(entities: Collection<GitUserDetailEntity>) {
         upsertCalled = true
         lastUpsertedUser = entities.firstOrNull()
     }
 
-    override suspend fun delete(entity: GitUserDetail): Int {
+    override suspend fun delete(entity: GitUserDetailEntity): Int {
         return 1
     }
 }

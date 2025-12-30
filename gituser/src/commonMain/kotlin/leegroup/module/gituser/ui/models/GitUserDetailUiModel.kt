@@ -3,7 +3,7 @@ package leegroup.module.gituser.ui.models
 import androidx.compose.runtime.Immutable
 
 @Immutable
-internal data class GitUserDetailUiModel(
+data class GitUserDetailUiModel(
     val login: String = "",
     val name: String = "",
     val avatarUrl: String = "",
